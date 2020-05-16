@@ -58,10 +58,6 @@
   align-items: center;
 }
 
-.title {
-  font-size: 32px
-}
-
 @media only screen and (max-width: 440px) {
   .mobileSpacer {
     height: 1em;
