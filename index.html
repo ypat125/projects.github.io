@@ -72,6 +72,8 @@
               <p>Recently, I co-founded <a href="https://helpinghands.community" target="_blank">Helping Hands</a>, a nonprofit organization that provides free delivery and errand running for those most at-risk during COVID-19.
                  Helping Hands is a scalable tech solution to connect volunteers across the country with people in need.</p>
 
+              <p>Check out some of my projects by clicking on icons to the right.</p>
+
               <p><a href="https://www.linkedin.com/in/yash-s-patil/" target="_blank">LinkedIn</a> - <a href="https://github.com/ypat125" target="_blank">Github</a> - <a href="static/Yash_Patil_Resume.pdf" target="_blank">Resume</a><p>
 
               <p>Contact me: <a href="mailto:yash.s.patil125@gmail.com">yash.s.patil125@gmail.com</a></p>
@@ -106,6 +108,11 @@
                 <img src="static/square_scio.png" class="img-fluid projectImageSmall">
               </div>
             </div>
+            <div class="projectLine">
+              <div class="project" id="orgoDB">
+                <img src="static/orgoDB.png" class="img-fluid projectImageSmall">
+              </div>
+            </div>
             <div class="mobileSpacer"></div>
           </div>
         </div>
@@ -123,6 +130,8 @@
           <p>Recently, I co-founded <a href='https://helpinghands.community' target='_blank'>Helping Hands</a>, a nonprofit organization that provides free delivery and errand running for those most at-risk during COVID-19.\
              Helping Hands is a scalable tech solution to connect volunteers across the country with people in need.</p>\
              \
+         <p>Check out some of my projects by clicking on icons to the right.</p>\
+            \
           <p><a href='https://www.linkedin.com/in/yash-s-patil/' target='_blank'>LinkedIn</a> - <a href='https://github.com/ypat125' target='_blank'>Github</a> - <a href='static/Yash_Patil_Resume.pdf' target='_blank'>Resume</a><p>\
              \
           <p>Contact me: <a href='mailto:yash.s.patil125@gmail.com'>yash.s.patil125@gmail.com</a></p>\
@@ -148,7 +157,7 @@
       $( "#echo" ).click(function() {
         $("#sectionTitle").html("Echo");
         $("#sectionUrl").html("<a href='https://getecho.app' target='_blank'>getecho.app</a>");
-        $("#sectionInfo").html("<p>Echo is an app that allows any user to start their own short form podcast series. It uses a social media like model so users can gain followers, promote their content, and join the conversation.</p>\
+        $("#sectionInfo").html("<p>Echo is an app that allows any user to start their own short form podcast series. Users can gain followers, promote their content, and join the conversation by participating in back in forth 'audio conversation threads'.</p>\
         ");
         $(window).scrollTop(0);
       });
@@ -157,7 +166,7 @@
         $("#sectionTitle").html("Gimme SMS");
         $("#sectionUrl").html("<a href='http://gimmesms.com' target='_blank'>gimmesms.com</a>");
         $("#sectionInfo").html("\
-          <p>A service for users that don't have data plans to simply text a phone number and receive turn by turn directions, address locations, and weather information scraped from the web.</p>\
+          <p>A service for users that don't have cellular data plans to simply text a phone number and receive essential information such as turn by turn directions, address locations, and weather information scraped from the web.</p>\
         ");
         $(window).scrollTop(0);
       });
@@ -166,8 +175,8 @@
         $("#sectionTitle").html("Ecuisina");
         $("#sectionUrl").html("<a href='https://ecuisina.com' target='_blank'>ecuisina.com</a>");
         $("#sectionInfo").html("\
-          <p>An online food trading platform for users to barter home cooked foods and experience authentic cuisines locally and affordably.\
-          Post homemade foods that you make and schedule trades with others in your area</p>\
+          <p>An online food trading platform designed to help neighbors barter home cooked foods and experience authentic cuisines locally and affordably.\
+          Post homemade foods that you make and schedule trades with others in your area.</p>\
         ");
         $(window).scrollTop(0);
       });
@@ -175,7 +184,14 @@
       $( "#lasascio" ).click(function() {
         $("#sectionTitle").html("LASA Science Olympiad");
         $("#sectionUrl").html("<a href='http://lasascio.com' target='_blank'>lasascio.com</a>");
-        $("#sectionInfo").html("<p>I have been participating in Science Olympiad, a national science competition, with a primary focus in engineering for the past 6 years. Currently, I am a captain of the LASA Science Olympiad team.</p>");
+        $("#sectionInfo").html("<p>I have been participating in Science Olympiad, a national science competition, with a primary focus in engineering for the past 6 years. I have been a captain of the LASA Science Olympiad team since 10th grade.</p>");
+        $(window).scrollTop(0);
+      });
+
+      $( "#orgoDB" ).click(function() {
+        $("#sectionTitle").html("Orgo Problem Database");
+        $("#sectionUrl").html("<a href='https://orgodb-d7768.firebaseapp.com' target='_blank'>orgodb-d7768.firebaseapp.com</a>");
+        $("#sectionInfo").html("<p>After the database a teacher of mine used to source problems for his Organic Chemistry 2 & 3 courses was taken down. I reconstructed an in-house version that is searchable.</p>");
         $(window).scrollTop(0);
       });
     </script>
