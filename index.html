@@ -62,10 +62,10 @@
       <div class="row fullHeight">
         <div class="col-md-6 leftSide">
           <div class="blurb">
-            <h1 id="sectionTitle">Yash Patil</h1>
+            <h1 id="sectionTitle" class="myName">Yash Patil</h1>
             <h3 id="sectionUrl"></h2>
             <br/>
-            <div id="sectionInfo">
+            <div id="sectionInfo" class="projectDescription">
               <p>Hey, I'm Yash, a student at LASA High School in Austin, Texas.
                  I enjoy building devices for <a href="https://soinc.org" target="_blank">Science Olympiad</a> and working on products that solve real needs.</p>
 
@@ -93,22 +93,25 @@
               <div class="project" id="helpinghands">
                 <img src="static/square_helpinghands.png" class="img-fluid projectImageSmall">
               </div>
+              <div class="project" id="webberEnergy">
+                <img src="static/utAustinLogo.png" class="img-fluid projectImageSmall">
+              </div>
+            </div>
+            <div class="projectLine">
               <div class="project" id="echo">
                 <img src="static/square_echo.jpg" class="img-fluid projectImageSmall">
               </div>
               <div class="project" id="gimmesms">
                 <img src="static/square_gimmesms.png" class="img-fluid projectImageSmall">
               </div>
-            </div>
-            <div class="projectLine">
               <div class="project" id="ecuisina">
                 <img src="static/square_ecuisina.png" class="img-fluid projectImageSmall">
               </div>
+            </div>
+            <div class="projectLine">
               <div class="project" id="lasascio">
                 <img src="static/square_scio.png" class="img-fluid projectImageSmall">
               </div>
-            </div>
-            <div class="projectLine">
               <div class="project" id="orgoDB">
                 <img src="static/orgoDB.png" class="img-fluid projectImageSmall">
               </div>
@@ -150,6 +153,19 @@
         <a href='https://www.forbes.com/sites/chelseadavis/2020/04/15/helping-hands-the-bay-areas-grassroots-response-to-covid-19/#7bc2634a1951' target='_blank'>Forbes</a>,\
         <a href='https://www.entrepreneur.com/video/350031' target='_blank'>Entrepreneur</a>, and more.</p>\
         <p>Interested in learning more? Contact <a href='mailto:yash@helpinghands.community'>me</a> or <a href='mailto:joinus@helpinghands.community'>join us<a></p>\
+        ");
+        $(window).scrollTop(0);
+      });
+
+      $( "#webberEnergy" ).click(function() {
+        $("#sectionTitle").html("Webber Energy Group");
+        $("#sectionUrl").html("<a href='http://www.webberenergygroup.com/people/yash-patil/' target='_blank'>webberenergygroup.com</a>");
+        $("#sectionInfo").html("\
+        <p>I started as a researcher at the Webber Energy group at UT Austin in 2019.</p>\
+        \
+        <p>My work primarly consists of creating open source digital models of Texas’ power grid using Python for Power Systems Analysis and SWITCH: Power Systems Planning model</p>\
+        \
+        <p>I have also built interactive public facing graphical user interfaces for users to discern trends associated with generation, load, and transmission in Texas</p>\
         ");
         $(window).scrollTop(0);
       });
