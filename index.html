@@ -28,6 +28,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
     <link rel="apple-touch-icon" sizes="57x57" href="static/favicon.ico/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="static/favicon.ico/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="static/favicon.ico/apple-icon-72x72.png">
@@ -57,7 +59,162 @@
     </script>
   </head>
   <body>
+    <style>
+      /**
+       * Demo styles
+       * Not needed for tooltips to work
+       */
 
+      /* `border-box`... ALL THE THINGS! */
+      html {
+        box-sizing: border-box;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      a:hover {
+        text-decoration: none;
+      }
+
+      header,
+      .demo,
+      .demo p {
+        margin: 4em 0;
+        text-align: center;
+      }
+
+      /**
+       * Tooltip Styles
+       */
+
+      /* Base styles for the element that has a tooltip */
+      [data-tooltip],
+      .tooltip {
+        position: relative;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      /* Base styles for the entire tooltip */
+      [data-tooltip]:before,
+      [data-tooltip]:after,
+      .tooltip:before,
+      .tooltip:after {
+        position: absolute;
+        visibility: hidden;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+        opacity: 0;
+        -webkit-transition:
+        opacity 0.2s ease-in-out,
+      visibility 0.2s ease-in-out,
+      -webkit-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+      -moz-transition:
+      opacity 0.2s ease-in-out,
+      visibility 0.2s ease-in-out,
+      -moz-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+      transition:
+      opacity 0.2s ease-in-out,
+      visibility 0.2s ease-in-out,
+      transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform:    translate3d(0, 0, 0);
+        transform:         translate3d(0, 0, 0);
+        pointer-events: none;
+      }
+
+      /* Show the entire tooltip on hover and focus */
+      [data-tooltip]:hover:before,
+      [data-tooltip]:hover:after,
+      [data-tooltip]:focus:before,
+      [data-tooltip]:focus:after,
+      .tooltip:hover:before,
+      .tooltip:hover:after,
+      .tooltip:focus:before,
+      .tooltip:focus:after {
+        visibility: visible;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+        opacity: 1;
+      }
+
+      /* Base styles for the tooltip's directional arrow */
+      .tooltip:before,
+      [data-tooltip]:before {
+        z-index: 1001;
+        border: 6px solid transparent;
+        background: transparent;
+        content: "";
+      }
+
+      /* Base styles for the tooltip's content area */
+      .tooltip:after,
+      [data-tooltip]:after {
+        z-index: 1000;
+        padding: 8px;
+        width: 160px;
+        background-color: #000;
+        background-color: hsla(0, 0%, 20%, 1.0);
+        border-radius: 4px;
+        color: #fff;
+        content: attr(data-tooltip);
+        font-size: 14px;
+        line-height: 1.2;
+      }
+
+      /* Horizontally align top/bottom tooltips */
+      [data-tooltip]:after,
+      .tooltip:after,
+      .tooltip-top:after {
+        margin-left: -80px;
+      }
+
+      [data-tooltip]:hover:before,
+      [data-tooltip]:hover:after,
+      [data-tooltip]:focus:before,
+      [data-tooltip]:focus:after,
+      .tooltip:hover:before,
+      .tooltip:hover:after,
+      .tooltip:focus:before,
+      .tooltip:focus:after,
+      .tooltip-top:hover:before,
+      .tooltip-top:hover:after,
+      .tooltip-top:focus:before,
+      .tooltip-top:focus:after {
+        -webkit-transform: translateY(-12px);
+        -moz-transform:    translateY(-12px);
+        transform:         translateY(-12px);
+      }
+
+      /* Bottom */
+      .tooltip-bottom:before,
+      .tooltip-bottom:after {
+        top: 100%;
+        bottom: auto;
+        left: 50%;
+      }
+
+      .tooltip-bottom:before {
+        margin-top: -12px;
+        margin-bottom: 0;
+        border-top-color: transparent;
+        border-bottom-color: #000;
+        border-bottom-color: hsla(0, 0%, 20%, 0.9);
+      }
+
+      .tooltip-bottom:hover:before,
+      .tooltip-bottom:hover:after,
+      .tooltip-bottom:focus:before,
+      .tooltip-bottom:focus:after {
+        -webkit-transform: translateY(12px);
+        -moz-transform:    translateY(12px);
+        transform:         translateY(12px);
+      }
+    </style>
     <div class="container-fluid fullHeight">
       <div class="row fullHeight">
         <div class="col-md-6 leftSide">
@@ -67,12 +224,11 @@
             <br/>
             <div id="sectionInfo" class="projectDescription">
               <p>Hey, I'm Yash, a student at LASA High School in Austin, Texas.
-                 I enjoy building devices for <a href="https://soinc.org" target="_blank">Science Olympiad</a> and working on products that solve real needs.</p>
+                 I enjoy building devices for <a href="https://soinc.org" target="_blank">Science Olympiad</a> and working on projects that solve real needs.</p>
 
-              <p>Recently, I co-founded <a href="https://helpinghands.community" target="_blank">Helping Hands</a>, a nonprofit organization that provides free delivery and errand running for those most at-risk during COVID-19.
-                 Helping Hands is a scalable tech solution to connect volunteers across the country with people in need.</p>
+              <p>Recently, I co-founded <a href="https://helpinghands.community" target="_blank">Helping Hands</a>, a nonprofit organization that provides free grocery delivery for those most vunerable to COVID-19: senior citizens, the immunocompromised, and people with pre-existing medical conditions which put them at additional risk.</p>
 
-              <p>Check out some of my projects by clicking on icons to the right.</p>
+              <p>Check out more of my projects by clicking on icons to the right!</p>
 
               <p><a href="https://www.linkedin.com/in/yash-s-patil/" target="_blank">LinkedIn</a> - <a href="https://github.com/ypat125" target="_blank">Github</a> - <a href="static/Yash_Patil_Resume.pdf" target="_blank">Resume</a><p>
 
@@ -84,35 +240,35 @@
           <div>
             <div class="mobileSpacer"></div>
             <div class="projectLine">
-              <div class="project" id="profile">
+              <div class="project tooltip-bottom" id="profile" data-tooltip="About Me">
                 <img src="static/square_profile.png" alt="Yash Patil" class="img-fluid projectImage">
               </div>
             </div>
             <br/>
             <div class="projectLine">
-              <div class="project" id="helpinghands">
+              <div class="project tooltip-bottom" id="helpinghands" data-tooltip="Helping Hands">
                 <img src="static/square_helpinghands.png" class="img-fluid projectImageSmall">
               </div>
-              <div class="project" id="webberEnergy">
+              <div class="project tooltip-bottom" id="webberEnergy" data-tooltip="Webber Energy">
                 <img src="static/utAustinLogo.png" class="img-fluid projectImageSmall">
               </div>
             </div>
             <div class="projectLine">
-              <div class="project" id="echo">
+              <div class="project tooltip-bottom" id="echo" data-tooltip="Echo">
                 <img src="static/square_echo.jpg" class="img-fluid projectImageSmall">
               </div>
-              <div class="project" id="gimmesms">
+              <div class="project tooltip-bottom" id="gimmesms" data-tooltip="GimmeSMS">
                 <img src="static/square_gimmesms.png" class="img-fluid projectImageSmall">
               </div>
-              <div class="project" id="ecuisina">
+              <div class="project tooltip-bottom" id="ecuisina" data-tooltip="Ecuisina">
                 <img src="static/square_ecuisina.png" class="img-fluid projectImageSmall">
               </div>
             </div>
             <div class="projectLine">
-              <div class="project" id="lasascio">
+              <div class="project tooltip-bottom" id="lasascio" data-tooltip="LASA SciO">
                 <img src="static/square_scio.png" class="img-fluid projectImageSmall">
               </div>
-              <div class="project" id="orgoDB">
+              <div class="project tooltip-bottom" id="orgoDB" data-tooltip="Orgo Database">
                 <img src="static/orgoDB.png" class="img-fluid projectImageSmall">
               </div>
             </div>
@@ -128,12 +284,11 @@
         $("#sectionUrl").html("");
         $("#sectionInfo").html("\
           <p>Hey, I'm Yash, a student at LASA High School in Austin, Texas.\
-             I enjoy building devices for <a href='https://soinc.org' target='_blank'>Science Olympiad</a> and working on products that solve real needs.</p>\
+             I enjoy building devices for <a href='https://soinc.org' target='_blank'>Science Olympiad</a> and working on projects that solve real needs.</p>\
              \
-          <p>Recently, I co-founded <a href='https://helpinghands.community' target='_blank'>Helping Hands</a>, a nonprofit organization that provides free delivery and errand running for those most at-risk during COVID-19.\
-             Helping Hands is a scalable tech solution to connect volunteers across the country with people in need.</p>\
+          <p>Recently, I co-founded <a href='https://helpinghands.community' target='_blank'>Helping Hands</a>, a nonprofit organization that provides free grocery delivery for those most vunerable to COVID-19: senior citizens, the immunocompromised, and people with pre-existing medical conditions which put them at additional risk.</p>\
              \
-         <p>Check out some of my projects by clicking on icons to the right.</p>\
+          <p>Check out more of my projects by clicking on icons to the right!</p>\
             \
           <p><a href='https://www.linkedin.com/in/yash-s-patil/' target='_blank'>LinkedIn</a> - <a href='https://github.com/ypat125' target='_blank'>Github</a> - <a href='static/Yash_Patil_Resume.pdf' target='_blank'>Resume</a><p>\
              \
@@ -146,9 +301,11 @@
         $("#sectionTitle").html("Helping Hands");
         $("#sectionUrl").html("<a href='https://helpinghands.community' target='_blank'>helpinghands.community</a>");
         $("#sectionInfo").html("\
-        <p>I co-founded Helping Hands along with my brother and two former executives from Facebook and Uber.</p>\
-        <p>Helping Hands is a nonprofit organization that provides free delivery and errand running for those most at-risk during COVID-19. We connect volunteers across the country with people in need through our scalable web app.</p>\
-        <p>We have been featured in several publications such as <a href='https://cbsaustin.com/news/local/two-austin-brothers-develop-program-to-connect-the-most-vulnerable-with-volunteers-to-help' target='_blank'>CBS</a>,\
+        <p>I co-founded Helping Hands alongside with my brother and two former executives from Facebook and Uber.</p>\
+        <p>Helping Hands is a nonprofit organization dedicated to serving those most vulnerable to COVID-19: senior citizens, the immunocompromised, and people with pre-existing medical conditions which put them at additional risk.</p>\
+        <p>Our community volunteers deliver groceries, medicine, and other necessary supplies to empower everyone to stay healthy and be as responsible as they can be.</p>\
+        <p>As of late November, we have delivered over 250,000 meals through our platform, and partnered with logistics providers like <a href='https://www.uber.com/' target='_blank'>Uber</a>, <a href='https://www.lyft.com/' target='_blank'>Lyft</a>, and <a href='https://axlehire.com/' href='_blank'>Axlehire</a> to deliver food at scale.</p>\
+        <p>Helping Hands has been featured in many publications such as <a href='https://cbsaustin.com/news/local/two-austin-brothers-develop-program-to-connect-the-most-vulnerable-with-volunteers-to-help' target='_blank'>CBS</a>,\
         <a href='https://www.fox7austin.com/news/austin-brothers-help-build-website-to-connect-immunocompromised-with-volunteers' target='_blank'>FOX</a>,\
         <a href='https://www.forbes.com/sites/chelseadavis/2020/04/15/helping-hands-the-bay-areas-grassroots-response-to-covid-19/#7bc2634a1951' target='_blank'>Forbes</a>,\
         <a href='https://www.entrepreneur.com/video/350031' target='_blank'>Entrepreneur</a>, and more.</p>\
@@ -163,9 +320,9 @@
         $("#sectionInfo").html("\
         <p>I started as a researcher at the Webber Energy group at UT Austin in 2019.</p>\
         \
-        <p>My work primarly consists of creating open source digital models of Texas’ power grid using Python for Power Systems Analysis and SWITCH: Power Systems Planning model</p>\
+        <p>My work primarly consists of creating open source digital models of Texas’ power grid using <a href='https://pypsa.org' href='_blank'>Python for Power Systems Analysis</a> and <a href='http://switch-model.org/' target='_blank'>SWITCH: Power Systems Planning model.</a></p>\
         \
-        <p>I have also built interactive public facing graphical user interfaces for users to discern trends associated with generation, load, and transmission in Texas</p>\
+        <p>I have also built interactive public facing graphical user interfaces for users to discern trends associated with generation, load, and transmission in Texas.</p>\
         ");
         $(window).scrollTop(0);
       });
@@ -173,16 +330,16 @@
       $( "#echo" ).click(function() {
         $("#sectionTitle").html("Echo");
         $("#sectionUrl").html("<a href='https://getecho.app' target='_blank'>getecho.app</a>");
-        $("#sectionInfo").html("<p>Echo is an app that allows any user to start their own short form podcast series. Users can gain followers, promote their content, and join the conversation by participating in back in forth 'audio conversation threads'.</p>\
+        $("#sectionInfo").html("<p>Echo is an app that allows any user to start their own short form podcast series. Users can gain followers, promote their content, and join the conversation by participating in back in forth \"audio conversation threads\".</p>\
         ");
         $(window).scrollTop(0);
       });
 
       $( "#gimmesms" ).click(function() {
-        $("#sectionTitle").html("Gimme SMS");
+        $("#sectionTitle").html("GimmeSMS");
         $("#sectionUrl").html("<a href='http://gimmesms.com' target='_blank'>gimmesms.com</a>");
         $("#sectionInfo").html("\
-          <p>A service for users that don't have cellular data plans to simply text a phone number and receive essential information such as turn by turn directions, address locations, and weather information scraped from the web.</p>\
+          <p>A service for users that don't have cellular data plans to simply text a phone number and receive essential information—such as turn by turn directions, address locations, and weather information—scraped from the web.</p>\
         ");
         $(window).scrollTop(0);
       });
@@ -200,7 +357,7 @@
       $( "#lasascio" ).click(function() {
         $("#sectionTitle").html("LASA Science Olympiad");
         $("#sectionUrl").html("<a href='http://lasascio.com' target='_blank'>lasascio.com</a>");
-        $("#sectionInfo").html("<p>I have been participating in Science Olympiad, a national science competition, with a primary focus in engineering for the past 6 years. I have been a captain of the LASA Science Olympiad team since 10th grade.</p>");
+        $("#sectionInfo").html("<p>I have been participating in <a href='https://soinc.org' target='_blank'>Science Olympiad</a>, a national science competition, with a primary focus in engineering for the past 6 years. I have been captain of the LASA Science Olympiad team since 10th grade.</p>");
         $(window).scrollTop(0);
       });
 
