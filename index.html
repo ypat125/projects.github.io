@@ -18,10 +18,10 @@
 
     <title>Yash Patil - My Projects</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="styles.css">
     <link rel="canonical" href="https://yashpatil.me/">
@@ -275,7 +275,6 @@
         </div>
       </div>
     </div>
-
     <script>
       $( "#profile" ).click(function() {
         $("#sectionTitle").html("Yash Patil");
@@ -357,8 +356,95 @@
       $( "#lasascio" ).click(function() {
         $("#sectionTitle").html("LASA Science Olympiad");
         $("#sectionUrl").html("<a href='http://lasascio.com' target='_blank'>lasascio.com</a>");
-        $("#sectionInfo").html("<p>I have been participating in <a href='https://soinc.org' target='_blank'>Science Olympiad</a>, a national science competition, with a primary focus in engineering for the past 6 years. I have been captain of the LASA Science Olympiad team since 10th grade.</p>");
+        $("#sectionInfo").html("\
+        <div class='scioContainer'>\
+          <p>I have been participating in <a href='https://soinc.org' target='_blank'>Science Olympiad</a>, a national science competition, with a primary focus in engineering for the past 6 years. I have been captain of the LASA Science Olympiad team since 10th grade.</p>\
+          <p>Here are a few of the projects I've built:</p>\
+          <div id='myCarousel' class='carousel slide' data-interval='false' data-ride='carousel'>\
+            <ol class='carousel-indicators carousel-indicators-container'>\
+              <li data-target='#myCarousel' data-slide-to='0' class='active'></li>\
+              <li data-target='#myCarousel' data-slide-to='1'></li>\
+              <li data-target='#myCarousel' data-slide-to='2'></li>\
+              <li data-target='#myCarousel' data-slide-to='3'></li>\
+              <li data-target='#myCarousel' data-slide-to='4'></li>\
+              <li data-target='#myCarousel' data-slide-to='5'></li>\
+            </ol>\
+            <div class='carousel-inner carousel-inner-container'>\
+              <div class='carousel-item active'>\
+                <div class='carousel-caption-container'>\
+                  <p class='carouselCaptionTitle'>Mission Possible</p>\
+                  <p class='carouselCaptionText'>A RubeGoldberg-like device that triggers an end task through a series of defined electrical, mechanical, and chemical actions.</p>\
+                </div>\
+                <video width='100%' controls id='Mission_Possible_player'>\
+                  <source src='static/videos/Mission_Possible.mp4' type='video/mp4'>\
+                </video>\
+              </div>\
+              <div class='carousel-item'>\
+                <div class='carousel-caption-container'>\
+                  <p class='carouselCaptionTitle'>Mousetrap Vehicle</p>\
+                  <p class='carouselCaptionText'>A vehicle using mouse traps as its sole means of propulsion that can push a plastic cup forward, reverse direction, and come to a stop behind the start point at a specified endpoint.</p>\
+                </div>\
+                <video width='100%' controls id='Mousetrap_Vehicle_player'>\
+                  <source src='static/videos/Mousetrap_Vehicle.mp4' type='video/mp4'>\
+                </video>\
+              </div>\
+              <div class='carousel-item'>\
+                <div class='carousel-caption-container'>\
+                  <p class='carouselCaptionTitle'>Gravity Vehicle</p>\
+                  <p class='carouselCaptionText'>A ramp and vehicle (up to 2kg) that uses the gravitational potential energy to propel the car to a target point in the shortest time possible.</p>\
+                </div>\
+                <video width='100%' controls id='Gravity_Vehicle_player'>\
+                  <source src='static/videos/Gravity_Vehicle.mp4' type='video/mp4'>\
+                </video>\
+              </div>\
+              <div class='carousel-item'>\
+                <div class='carousel-caption-container'>\
+                  <p class='carouselCaptionTitle'>Ping Pong Parachute</p>\
+                  <p class='carouselCaptionText'>A rocket and parachute that keeps a ping pong ball aloft for as long as possible.</p>\
+                </div>\
+                <video width='30%' controls id='Ping_Pong_Parachute_player'>\
+                  <source src='static/videos/Ping_Pong_Parachute.mp4' type='video/mp4'>\
+                </video>\
+              </div>\
+              <div class='carousel-item'>\
+                <div class='carousel-caption-container'>\
+                  <p class='carouselCaptionTitle'>Scrambler</p>\
+                  <p class='carouselCaptionText'>A vehicle and launcher that must use the gravitational potential energy of a 2kg mass to propel a car as close to a wall as possible without breaking the egg attached to the front of the car.</p>\
+                </div>\
+                <video width='100%' controls id='Scrambler_player'>\
+                  <source src='static/videos/Scrambler.mp4' type='video/mp4'>\
+                </video>\
+              </div>\
+              <div class='carousel-item'>\
+                <div class='carousel-caption-container'>\
+                  <p class='carouselCaptionTitle'>Air Trajectory</p>\
+                  <p class='carouselCaptionText'>A device that uses air pressure from a falling mass to launch a ping pong ball to a target distance.</p>\
+                </div>\
+                <video width='100%' controls id='Air_Trajectory_player'>\
+                  <source src='static/videos/Air_trajectory.mp4' type='video/mp4'>\
+                </video>\
+              </div>\
+            </div>\
+            <a id='scioCarouselPrev' class='carousel-control-prev carousel-controls' href='#myCarousel' role='button' data-slide='prev'>\
+              <span class='carousel-control-prev-icon' aria-hidden='true'></span>\
+              <span class='sr-only'>Previous</span>\
+            </a>\
+            <a id='scioCarouselNext' class='carousel-control-next carousel-controls' href='#myCarousel' role='button' data-slide='next'>\
+              <span class='carousel-control-next-icon' aria-hidden='true'></span>\
+              <span class='sr-only'>Next</span>\
+            </a>\
+          </div>\
+        </div>");
         $(window).scrollTop(0);
+      });
+
+      $('body').on('click', 'a.carousel-controls', function() {
+        document.getElementById('Mission_Possible_player').pause();
+        document.getElementById('Mousetrap_Vehicle_player').pause();
+        document.getElementById('Gravity_Vehicle_player').pause();
+        document.getElementById('Ping_Pong_Parachute_player').pause();
+        document.getElementById('Scrambler_player').pause();
+        document.getElementById('Air_Trajectory_player').pause();
       });
 
       $( "#orgoDB" ).click(function() {

@@ -13,7 +13,7 @@
 }
 
 .projectDescription {
-  font-family: "AvenirRegular"
+  font-family: "AvenirRegular";
 }
 
 .fullHeight {
@@ -74,6 +74,48 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.scioContainer {
+  overflow-y: scroll;
+}
+
+.scioEventName {
+  font-weight: 900;
+  text-decoration: underline;
+}
+
+.carousel-inner-container {
+  text-align: center;
+}
+
+.carousel-indicators-container {
+  margin-bottom: 60px;
+  height: 2px;
+}
+
+a.carousel-controls {
+height: 10%;
+top: 33%;
+background-color: rgba(0, 0, 0, 1.0);
+width: 40px;
+//add your own CSS as you need
+}
+
+.carousel-caption-container {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  margin-bottom: -16px;
+  padding: 10px;
+}
+
+.carouselCaptionTitle {
+  font-size: 17px;
+}
+
+.carouselCaptionText {
+  margin-top: -18px;
+  font-size: 12px;
 }
 
 @media only screen and (max-width: 440px) {
