@@ -9,6 +9,7 @@
 }
 
 .myName {
+  padding-top: 35px;
   font-family: "AvenirRegular"
 }
 
@@ -17,15 +18,25 @@
 }
 
 .fullHeight {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .leftSide {
   background-color: #F7F7F2;
   font-family: 'Open Sans', sans-serif;
   display: flex;
+  flex-direction: column;
   align-items: center;
   padding: 2em;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.leftSideInner {
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .overflow {
@@ -52,6 +63,81 @@
   border-radius: 50px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.initialsLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  margin-left: 10px;
+  background-color: #4285F4;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #DCDCDC;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.initials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.initialsText {
+  font-family: 'Open Sans', sans-serif;
+  padding-top: 10px;
+  color: white;
+}
+
+.logoProject {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  margin-left: 10px;
+  background-color: #FFFFFF;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #DCDCDC;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.screenshotContainer {
+  border-style: solid;
+  border-width: 10px;
+  border-color: #DCDCDC;
+  border-radius: 4px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  margin-left: 10px;
+  background-color: #FFFFFF;
+  height: 150px;
+  width: 150px;
+  border-radius: 75px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.profile:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.profileImage {
+  height: 140px;
+  width: 140px;
+  border-radius: 70px;
 }
 
 .project:hover {
@@ -118,8 +204,51 @@ width: 40px;
   font-size: 12px;
 }
 
+.logoDiv {
+  padding-top: 50px;
+  padding-bottom: 40px;
+}
+
 @media only screen and (max-width: 440px) {
-  .mobileSpacer {
-    height: 1em;
+  .mobileSpacerTop {
+    height: 50px;
+  }
+  .mobileSpacerBottom {
+    height: 100px;
+  }
+  .profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: #FFFFFF;
+    height: 140px;
+    width: 140px;
+    border-radius: 75px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  }
+  .profileImage {
+    height: 130px;
+    width: 130px;
+    border-radius: 70px;
+  }
+  .project {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    margin-left: 8px;
+    background-color: #FFFFFF;
+    height: 90px;
+    width: 90px;
+    border-radius: 50px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  }
+  .logoDiv {
+    padding-top: 20px;
+    padding-bottom: 10px;
   }
 }

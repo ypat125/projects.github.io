@@ -216,30 +216,41 @@
     <div class="container-fluid fullHeight">
       <div class="row fullHeight">
         <div class="col-md-6 leftSide">
-          <div class="blurb">
-            <h1 id="sectionTitle" class="myName">Yash Patil</h1>
-            <h3 id="sectionUrl"></h2>
-            <br/>
-            <div id="sectionInfo" class="projectDescription">
-              <p>Hey, I'm Yash, a student at LASA High School in Austin, Texas.
-                 I enjoy building devices for <a href="https://soinc.org" target="_blank">Science Olympiad</a> and working on projects that solve real needs.</p>
+          <div id="logoDiv">
+            <div class='projectLine logoDiv'>
+              <div class='initialsLogo'>
+                <div class="initials">
+                  <h1 class="initialsText">Y</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <h1 id="sectionTitle" class="myName">Yash Patil</h1>
+              <h3 id="sectionUrl"></h2>
+              <br/>
+              <div id="sectionInfo" class="projectDescription">
+                <p>Hey, I'm Yash, a student at LASA High School in Austin, Texas.
+                   I enjoy building devices for <a href="https://soinc.org" target="_blank">Science Olympiad</a> and working on projects that solve real needs.</p>
 
-              <p>Recently, I co-founded <a href="https://helpinghands.community" target="_blank">Helping Hands</a>, a nonprofit organization that provides free grocery delivery for those most vunerable to COVID-19: senior citizens, the immunocompromised, and people with pre-existing medical conditions which put them at additional risk.</p>
+                <p>Recently, I co-founded <a href="https://helpinghands.community" target="_blank">Helping Hands</a>, a nonprofit organization that provides free grocery delivery for those most vunerable to COVID-19: senior citizens, the immunocompromised, and people with pre-existing medical conditions which put them at additional risk.</p>
 
-              <p>Check out more of my projects by clicking on icons to the right!</p>
+                <p>Check out more of my projects by clicking on icons to the right!</p>
 
-              <p><a href="https://www.linkedin.com/in/yash-s-patil/" target="_blank">LinkedIn</a> - <a href="https://github.com/ypat125" target="_blank">Github</a> - <a href="static/Resume.pdf" target="_blank">Resume</a><p>
+                <p><a href="https://www.linkedin.com/in/yash-s-patil/" target="_blank">LinkedIn</a> - <a href="https://github.com/ypat125" target="_blank">Github</a> - <a href="static/Resume.pdf" target="_blank">Resume</a><p>
 
-              <p>Contact me: <a href="mailto:yash.s.patil125@gmail.com">yash.s.patil125@gmail.com</a></p>
+                <p>Contact me: <a href="mailto:yash.s.patil125@gmail.com">yash.s.patil125@gmail.com</a></p>
+              </div>
             </div>
           </div>
         </div>
         <div class="col-md-6 rightSide">
           <div>
-            <div class="mobileSpacer"></div>
+            <div class="mobileSpacerTop"></div>
             <div class="projectLine">
-              <div class="project tooltip-bottom" id="profile" data-tooltip="About Me">
-                <img src="static/square_profile.png" alt="Yash Patil" class="img-fluid projectImage">
+              <div class="profile tooltip-bottom" id="profile" data-tooltip="About Me">
+                <img src="static/Profile.jpg" alt="Yash Patil" class="img-fluid profileImage">
               </div>
             </div>
             <br/>
@@ -270,13 +281,23 @@
                 <img src="static/orgoDB.png" class="img-fluid projectImageSmall">
               </div>
             </div>
-            <div class="mobileSpacer"></div>
+            <div class="mobileSpacerBottom"></div>
           </div>
         </div>
       </div>
     </div>
     <script>
       $( "#profile" ).click(function() {
+        $("#logoDiv").html("\
+        <div class='projectLine logoDiv'>\
+          <div class='initialsLogo'>\
+            <div class='initials'>\
+              <h1 class='initialsText'>Y</h1>\
+            </div>\
+          </div>\
+        </div>\
+        ");
+        $("#leftSideInner").attr('class', 'leftSideInner');
         $("#sectionTitle").html("Yash Patil");
         $("#sectionUrl").html("");
         $("#sectionInfo").html("\
@@ -295,13 +316,21 @@
       });
 
       $( "#helpinghands" ).click(function() {
+        $("#logoDiv").html("\
+        <div class='projectLine logoDiv'>\
+          <div class='logoProject'>\
+            <img src='static/square_helpinghands.png' class='img-fluid projectImageSmall'>\
+          </div>\
+        </div>\
+        ");
+        $("#leftSideInner").attr('class', '');
         $("#sectionTitle").html("Helping Hands");
         $("#sectionUrl").html("<a href='https://helpinghands.community' target='_blank'>helpinghands.community</a>");
         $("#sectionInfo").html("\
         <p>I co-founded Helping Hands alongside with my brother and two former executives from Facebook and Uber.</p>\
         <p>Helping Hands is a nonprofit organization dedicated to serving those most vulnerable to COVID-19: senior citizens, the immunocompromised, and people with pre-existing medical conditions which put them at additional risk.</p>\
         <p>Our community volunteers deliver groceries, medicine, and other necessary supplies to empower everyone to stay healthy and be as responsible as they can be.</p>\
-        <p>As of late November, we have delivered over 250,000 meals through our platform and partnered with logistics providers like <a href='https://www.uber.com/' target='_blank'>Uber</a>, <a href='https://www.lyft.com/' target='_blank'>Lyft</a>, and <a href='https://axlehire.com/' target='_blank'>Axlehire</a> to deliver food at scale.</p>\
+        <p>As of November 2020, we have delivered over 250,000 meals through our platform and partnered with logistics providers like <a href='https://www.uber.com/' target='_blank'>Uber</a>, <a href='https://www.lyft.com/' target='_blank'>Lyft</a>, and <a href='https://axlehire.com/' target='_blank'>Axlehire</a> to deliver food at scale.</p>\
         <p>Helping Hands has been featured in many publications such as <a href='https://cbsaustin.com/news/local/two-austin-brothers-develop-program-to-connect-the-most-vulnerable-with-volunteers-to-help' target='_blank'>CBS</a>,\
         <a href='https://www.fox7austin.com/news/austin-brothers-help-build-website-to-connect-immunocompromised-with-volunteers' target='_blank'>FOX</a>,\
         <a href='https://www.mercurynews.com/2020/04/17/coronavirus-bay-area-seniors-vulnerable-people-can-get-help-with-shopping-errands/' target='_blank'>The Mercury News</a>,\
@@ -314,6 +343,14 @@
       });
 
       $( "#webberEnergy" ).click(function() {
+        $("#logoDiv").html("\
+        <div class='projectLine logoDiv'>\
+          <div class='logoProject'>\
+            <img src='static/utAustinLogo.png' class='img-fluid projectImageSmall'>\
+          </div>\
+        </div>\
+        ");
+        $("#leftSideInner").attr('class', '');
         $("#sectionTitle").html("Webber Energy Group");
         $("#sectionUrl").html("<a href='http://www.webberenergygroup.com/people/yash-patil/' target='_blank'>webberenergygroup.com</a>");
         $("#sectionInfo").html("\
@@ -322,38 +359,144 @@
         <p>My work primarly consists of creating open source digital models of Texas’ power grid using <a href='https://pypsa.org' href='_blank'>Python for Power Systems Analysis</a> and <a href='http://switch-model.org/' target='_blank'>SWITCH: Power Systems Planning model.</a></p>\
         \
         <p>I have also built interactive public facing graphical user interfaces for users to discern trends associated with generation, load, and transmission in Texas.</p>\
+        <div class='screenshotContainer'>\
+          <video width='100%' controls id='Webber_player'>\
+            <source src='static/videos/8760_base_run.mp4' type='video/mp4'>\
+          </video>\
+        </div>\
         ");
         $(window).scrollTop(0);
       });
 
       $( "#echo" ).click(function() {
+        $("#logoDiv").html("\
+        <div class='projectLine logoDiv'>\
+          <div class='logoProject'>\
+            <img src='static/square_echo.jpg' class='img-fluid projectImageSmall'>\
+          </div>\
+        </div>\
+        ");
+        $("#leftSideInner").attr('class', '');
         $("#sectionTitle").html("Echo");
         $("#sectionUrl").html("<a href='https://getecho.app' target='_blank'>getecho.app</a>");
-        $("#sectionInfo").html("<p>Echo is an app that allows any user to start their own short form podcast series. Users can gain followers, promote their content, and join the conversation by participating in back in forth \"audio conversation threads\".</p>\
-        ");
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+          $("#sectionInfo").html("\
+          <p>Echo is an app that allows any user to start their own short form podcast series. Users can gain followers, promote their content, and join the conversation by participating in back in forth \"audio conversation threads\".</p>\
+          ");
+        } else {
+          $("#sectionInfo").html("\
+          <p>Echo is an app that allows any user to start their own short form podcast series. Users can gain followers, promote their content, and join the conversation by participating in back in forth \"audio conversation threads\".</p>\
+          <p>Here are some photos:</p>\
+          <div class='row'>\
+            <div class='col-md-6'>\
+              <div class='screenshotContainer'>\
+                <img src='static/echo photos/1.png' class='img-fluid'>\
+              </div>\
+            </div>\
+            <div class='col-md-6'>\
+              <div class='screenshotContainer'>\
+                <img src='static/echo photos/2.png' class='img-fluid'>\
+              </div>\
+            </div>\
+          </div>\
+          <br/>\
+          <div class='row'>\
+            <div class='col-md-6'>\
+              <div class='screenshotContainer'>\
+                <img src='static/echo photos/3.png' class='img-fluid'>\
+              </div>\
+            </div>\
+            <div class='col-md-6'>\
+              <div class='screenshotContainer'>\
+                <img src='static/echo photos/4.png' class='img-fluid'>\
+              </div>\
+            </div>\
+          </div>\
+          <br/>\
+          <div class='row'>\
+            <div class='col-md-6'>\
+              <div class='screenshotContainer'>\
+                <img src='static/echo photos/5.png' class='img-fluid'>\
+              </div>\
+            </div>\
+            <div class='col-md-6'>\
+              <div class='screenshotContainer'>\
+                <img src='static/echo photos/6.png' class='img-fluid'>\
+              </div>\
+            </div>\
+          </div>\
+          ");
+        }
         $(window).scrollTop(0);
       });
 
       $( "#gimmesms" ).click(function() {
+        $("#logoDiv").html("\
+        <div class='projectLine logoDiv'>\
+          <div class='logoProject'>\
+            <img src='static/square_gimmesms.png' class='img-fluid projectImageSmall'>\
+          </div>\
+        </div>\
+        ");
+        $("#leftSideInner").attr('class', '');
         $("#sectionTitle").html("GimmeSMS");
         $("#sectionUrl").html("<a href='http://gimmesms.com' target='_blank'>gimmesms.com</a>");
-        $("#sectionInfo").html("\
-          <p>A service for users that don't have cellular data plans to simply text a phone number and receive essential information—such as turn by turn directions, address locations, and weather information—scraped from the web.</p>\
-        ");
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+          $("#sectionInfo").html("\
+            <p>A service for users that don't have cellular data plans to simply text a phone number and receive essential information—such as turn by turn directions, address locations, and weather information—scraped from the web.</p>\
+          ");
+        } else {
+          $("#sectionInfo").html("\
+            <p>A service for users that don't have cellular data plans to simply text a phone number and receive essential information—such as turn by turn directions, address locations, and weather information—scraped from the web.</p>\
+            <p>Here are some photos:</p>\
+            <div class='row'>\
+              <div class='col-md-6'>\
+                <div class='screenshotContainer'>\
+                  <img src='static/GimmeSMS1.png' class='img-fluid'>\
+                </div>\
+              </div>\
+              <div class='col-md-6'>\
+                <div class='screenshotContainer'>\
+                  <img src='static/GimmeSMS2.png' class='img-fluid'>\
+                </div>\
+              </div>\
+            </div>\
+          ");
+        }
         $(window).scrollTop(0);
       });
 
       $( "#ecuisina" ).click(function() {
+        $("#logoDiv").html("\
+        <div class='projectLine logoDiv'>\
+          <div class='logoProject'>\
+            <img src='static/square_ecuisina.png' class='img-fluid projectImageSmall'>\
+          </div>\
+        </div>\
+        ");
+        $("#leftSideInner").attr('class', '');
         $("#sectionTitle").html("Ecuisina");
         $("#sectionUrl").html("<a href='https://ecuisina.com' target='_blank'>ecuisina.com</a>");
         $("#sectionInfo").html("\
           <p>An online food trading platform designed to help neighbors barter home cooked foods and experience authentic cuisines locally and affordably.\
           Post homemade foods that you make and schedule trades with others in your area.</p>\
+          <p>Here is a screenshot:</p>\
+          <div class='screenshotContainer'>\
+            <img src='static/ecuisinaScreenshot.png' class='img-fluid'>\
+          </div>\
         ");
         $(window).scrollTop(0);
       });
 
       $( "#lasascio" ).click(function() {
+        $("#logoDiv").html("\
+        <div class='projectLine logoDiv'>\
+          <div class='logoProject'>\
+            <img src='static/square_scio.png' class='img-fluid projectImageSmall'>\
+          </div>\
+        </div>\
+        ");
+        $("#leftSideInner").attr('class', '');
         $("#sectionTitle").html("LASA Science Olympiad");
         $("#sectionUrl").html("<a href='http://lasascio.com' target='_blank'>lasascio.com</a>");
         $("#sectionInfo").html("\
@@ -448,9 +591,24 @@
       });
 
       $( "#orgoDB" ).click(function() {
+        $("#logoDiv").html("\
+        <div class='projectLine logoDiv'>\
+          <div class='logoProject'>\
+            <img src='static/orgoDB.png' class='img-fluid projectImageSmall'>\
+          </div>\
+        </div>\
+        ");
+        $("#leftSideInner").attr('class', '');
         $("#sectionTitle").html("Orgo Problem Database");
         $("#sectionUrl").html("<a href='https://orgodb-d7768.firebaseapp.com' target='_blank'>orgodb-d7768.firebaseapp.com</a>");
-        $("#sectionInfo").html("<p>After the database a teacher of mine used to source problems for his Organic Chemistry courses was taken down, I reconstructed an in-house version that is searchable.</p>");
+        $("#sectionInfo").html("\
+        <p>After the database a teacher of mine used to source problems for his Organic Chemistry courses was taken down, I reconstructed an in-house version that is searchable.</p>\
+        <p>This app was built using React and Firebase as well as a few python scripts I wrote to analyze a PDF file and assign keywords to problems.</p>\
+        <p>Here is a screenshot:</p>\
+        <div class='screenshotContainer'>\
+          <img src='static/orgoDBscreenshot.png' class='img-fluid'>\
+        </div>\
+        ");
         $(window).scrollTop(0);
       });
     </script>
