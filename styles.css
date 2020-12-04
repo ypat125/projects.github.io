@@ -71,7 +71,6 @@
   justify-content: center;
   margin-right: 10px;
   margin-left: 10px;
-  background-color: #4285F4;
   height: 100px;
   width: 100px;
   border-radius: 50px;
@@ -90,7 +89,7 @@
 .initialsText {
   font-family: 'Open Sans', sans-serif;
   padding-top: 10px;
-  color: white;
+  color: #DCDCDC;
 }
 
 .logoProject {
