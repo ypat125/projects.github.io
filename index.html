@@ -22,11 +22,11 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <link rel="stylesheet" href="styles.css">
     <link rel="canonical" href="https://yashpatil.me/">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link rel="apple-touch-icon" sizes="57x57" href="static/favicon.ico/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="static/favicon.ico/apple-icon-60x60.png">
@@ -57,528 +57,338 @@
     </script>
   </head>
   <body>
-    <style>
-      /**
-       * Demo styles
-       * Not needed for tooltips to work
-       */
-
-      /* `border-box`... ALL THE THINGS! */
-      html {
-        box-sizing: border-box;
-      }
-
-      *,
-      *:before,
-      *:after {
-        box-sizing: inherit;
-      }
-
-      a:hover {
-        text-decoration: none;
-      }
-
-      header,
-      .demo,
-      .demo p {
-        margin: 4em 0;
-        text-align: center;
-      }
-
-      /**
-       * Tooltip Styles
-       */
-
-      /* Base styles for the element that has a tooltip */
-      [data-tooltip],
-      .tooltip {
-        position: relative;
-        cursor: pointer;
-        text-align: center;
-      }
-
-      /* Base styles for the entire tooltip */
-      [data-tooltip]:before,
-      [data-tooltip]:after,
-      .tooltip:before,
-      .tooltip:after {
-        position: absolute;
-        visibility: hidden;
-        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-        opacity: 0;
-        -webkit-transition:
-        opacity 0.2s ease-in-out,
-      visibility 0.2s ease-in-out,
-      -webkit-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
-      -moz-transition:
-      opacity 0.2s ease-in-out,
-      visibility 0.2s ease-in-out,
-      -moz-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
-      transition:
-      opacity 0.2s ease-in-out,
-      visibility 0.2s ease-in-out,
-      transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
-        -webkit-transform: translate3d(0, 0, 0);
-        -moz-transform:    translate3d(0, 0, 0);
-        transform:         translate3d(0, 0, 0);
-        pointer-events: none;
-      }
-
-      /* Show the entire tooltip on hover and focus */
-      [data-tooltip]:hover:before,
-      [data-tooltip]:hover:after,
-      [data-tooltip]:focus:before,
-      [data-tooltip]:focus:after,
-      .tooltip:hover:before,
-      .tooltip:hover:after,
-      .tooltip:focus:before,
-      .tooltip:focus:after {
-        visibility: visible;
-        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-        opacity: 1;
-      }
-
-      /* Base styles for the tooltip's directional arrow */
-      .tooltip:before,
-      [data-tooltip]:before {
-        z-index: 1001;
-        border: 6px solid transparent;
-        background: transparent;
-        content: "";
-      }
-
-      /* Base styles for the tooltip's content area */
-      .tooltip:after,
-      [data-tooltip]:after {
-        z-index: 1000;
-        padding: 8px;
-        width: 160px;
-        background-color: #000;
-        background-color: hsla(0, 0%, 20%, 1.0);
-        border-radius: 4px;
-        color: #fff;
-        content: attr(data-tooltip);
-        font-size: 14px;
-        line-height: 1.2;
-      }
-
-      /* Horizontally align top/bottom tooltips */
-      [data-tooltip]:after,
-      .tooltip:after,
-      .tooltip-top:after {
-        margin-left: -80px;
-      }
-
-      [data-tooltip]:hover:before,
-      [data-tooltip]:hover:after,
-      [data-tooltip]:focus:before,
-      [data-tooltip]:focus:after,
-      .tooltip:hover:before,
-      .tooltip:hover:after,
-      .tooltip:focus:before,
-      .tooltip:focus:after,
-      .tooltip-top:hover:before,
-      .tooltip-top:hover:after,
-      .tooltip-top:focus:before,
-      .tooltip-top:focus:after {
-        -webkit-transform: translateY(-12px);
-        -moz-transform:    translateY(-12px);
-        transform:         translateY(-12px);
-      }
-
-      /* Bottom */
-      .tooltip-bottom:before,
-      .tooltip-bottom:after {
-        top: 100%;
-        bottom: auto;
-        left: 50%;
-      }
-
-      .tooltip-bottom:before {
-        margin-top: -12px;
-        margin-bottom: 0;
-        border-top-color: transparent;
-        border-bottom-color: #000;
-        border-bottom-color: hsla(0, 0%, 20%, 0.9);
-      }
-
-      .tooltip-bottom:hover:before,
-      .tooltip-bottom:hover:after,
-      .tooltip-bottom:focus:before,
-      .tooltip-bottom:focus:after {
-        -webkit-transform: translateY(12px);
-        -moz-transform:    translateY(12px);
-        transform:         translateY(12px);
-      }
-    </style>
-    <div class="container-fluid fullHeight">
-      <div class="row fullHeight">
-        <div class="col-md-6 leftSide">
-          <div id="logoDiv">
-            <div class='projectLine logoDiv'>
-              <div class='initialsLogo'>
-                <div class="initials">
-                  <h1 class="initialsText">Y</h1>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12 content">
+          <div class="toolbarContainer">
+            <div class="toolbar">
+              <div id="toggleButton" class="item tooltip-left" data-tooltip="Toggle toolbar">
+                <i id="toggleButtonIcon" class="material-icons">close</i>
+              </div>
+              <div id="toolbarInners" class="toolbarInners">
+                <div class="toolbarDivider"></div>
+                <a href="#About_Me" class="item tooltip-left" data-tooltip="About Me">
+                  <div class="initialsToolbar">YP</div>
+                </a>
+                <div class="toolbarDivider"></div>
+                <a href="#Helping_Hands" class="item tooltip-left" data-tooltip="Helping Hands">
+                  <img src='static/square_helpinghands.png' class='img-fluid'>
+                </a>
+                <div class="toolbarDivider"></div>
+                <a href="#Webber_Energy" class="item tooltip-left" data-tooltip="Webber Energy Group">
+                  <img src='static/webberEnergy.png' class='img-fluid'>
+                </a>
+                <div class="toolbarDivider"></div>
+                <a href="#LASA_Scio" class="item tooltip-left" data-tooltip="LASA Science Olympiad">
+                  <img src='static/square_scio.png' class='img-fluid rounded-custom'>
+                </a>
+                <div class="toolbarDivider"></div>
+                <a href="#Echo" class="itemReducedPadding tooltip-left" data-tooltip="Echo">
+                  <img src='static/echoWhale_square.png' class='img-fluid rounded-custom'>
+                </a>
+                <div class="toolbarDivider"></div>
+                <a href="#Ecuisina" class="item tooltip-left" data-tooltip="Ecuisina">
+                  <img src="static/square_ecuisina.png" class="img-fluid">
+                </a>
+                <div class="toolbarDivider"></div>
+                <a href="#GimmeSMS" class="item tooltip-left" data-tooltip="GimmeSMS">
+                  <img src="static/square_gimmesms.png" class="img-fluid rounded-custom">
+                </a>
+                <div class="toolbarDivider"></div>
+                <a href="#OrgoDB" class="item tooltip-left" data-tooltip="Organic Chemistry Problem Database">
+                  <img src="static/orgoDB.png" class="img-fluid">
+                </a>
+              </div>
+            </div>
+          </div>
+          <section id="About_Me">
+            <br/>
+            <div>
+              <div class='projectLine logoDiv'>
+                <div class="profile tooltip-bottom" data-tooltip="About Me">
+                  <img src="static/Profile.jpg" alt="Yash Patil" class="img-fluid profileImage">
                 </div>
               </div>
             </div>
-          </div>
-          <div>
-            <div>
-              <h1 id="sectionTitle" class="myName">Yash Patil</h1>
-              <h3 id="sectionUrl"></h2>
-              <br/>
-              <div id="sectionInfo" class="projectDescription">
-                <p>Hey, I'm Yash, a student at LASA High School in Austin, Texas.
-                   I enjoy building devices for <a href="https://soinc.org" target="_blank">Science Olympiad</a> and working on projects that solve real needs.</p>
+            <h1 class="myName">Yash Patil</h1>
+            <br/>
+            <div class="projectDescription">
+              <p>Hey, I'm Yash, a student at LASA High School in Austin, Texas. I enjoy building devices for <a href="https://soinc.org" target="_blank">Science Olympiad</a> and working on projects that solve real needs.</p>
+              <p>Recently, I co-founded <a href="https://helpinghands.community" target="_blank">Helping Hands</a>, a nonprofit organization that provides free grocery delivery for those most vunerable to COVID-19: senior citizens, the immunocompromised, and people with pre-existing medical conditions which put them at additional risk.</p>
+              <p>Check out more of my projects below, or by clicking on icons to the right!</p>
+              <p><a href="https://www.linkedin.com/in/yash-s-patil/" target="_blank">LinkedIn</a> - <a href="https://github.com/ypat125" target="_blank">Github</a> - <a href="static/Resume.pdf" target="_blank">Resume</a><p>
+              <p>Contact me: <a href="mailto:yash.s.patil125@gmail.com">yash.s.patil125@gmail.com</a></p>
+            </div>
+          </section>
 
-                <p>Recently, I co-founded <a href="https://helpinghands.community" target="_blank">Helping Hands</a>, a nonprofit organization that provides free grocery delivery for those most vunerable to COVID-19: senior citizens, the immunocompromised, and people with pre-existing medical conditions which put them at additional risk.</p>
+          <div class="divider"></div>
 
-                <p>Check out more of my projects by clicking on icons to the right!</p>
-
-                <p><a href="https://www.linkedin.com/in/yash-s-patil/" target="_blank">LinkedIn</a> - <a href="https://github.com/ypat125" target="_blank">Github</a> - <a href="static/Resume.pdf" target="_blank">Resume</a><p>
-
-                <p>Contact me: <a href="mailto:yash.s.patil125@gmail.com">yash.s.patil125@gmail.com</a></p>
+          <section id="Helping_Hands">
+            <div class='projectLine logoDiv'>
+              <div class='logoProject'>
+                <img src='static/square_helpinghands.png' class='img-fluid projectImageSmall'>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-6 rightSide">
-          <div>
-            <div class="mobileSpacerTop"></div>
-            <div class="projectLine">
-              <div class="profile tooltip-bottom" id="profile" data-tooltip="About Me">
-                <img src="static/Profile.jpg" alt="Yash Patil" class="img-fluid profileImage">
+            <h1 class="myName">Helping Hands</h1>
+            <h3><a href='https://helpinghands.community' target='_blank'>helpinghands.community</a></h2>
+            <br/>
+            <div class="projectDescription">
+              <p>I co-founded Helping Hands alongside with my brother and two former executives from Facebook and Uber.</p>
+              <p>Helping Hands is a nonprofit organization dedicated to serving those most vulnerable to COVID-19: senior citizens, the immunocompromised, and people with pre-existing medical conditions which put them at additional risk.</p>
+              <p>Our community volunteers deliver groceries, medicine, and other necessary supplies to empower everyone to stay healthy and be as responsible as they can be.</p>
+              <p>As of November 2020, we have delivered over 250,000 meals through our platform and partnered with logistics providers like <a href='https://www.uber.com/' target='_blank'>Uber</a>, <a href='https://www.lyft.com/' target='_blank'>Lyft</a>, and <a href='https://axlehire.com/' target='_blank'>Axlehire</a> to deliver food at scale.</p>
+              <p>Helping Hands has been featured in many publications such as <a href='https://cbsaustin.com/news/local/two-austin-brothers-develop-program-to-connect-the-most-vulnerable-with-volunteers-to-help' target='_blank'>CBS</a>,
+              <a href='https://www.fox7austin.com/news/austin-brothers-help-build-website-to-connect-immunocompromised-with-volunteers' target='_blank'>FOX</a>,
+              <a href='https://www.mercurynews.com/2020/04/17/coronavirus-bay-area-seniors-vulnerable-people-can-get-help-with-shopping-errands/' target='_blank'>The Mercury News</a>,
+              <a href='https://www.forbes.com/sites/chelseadavis/2020/04/15/helping-hands-the-bay-areas-grassroots-response-to-covid-19/#7bc2634a1951' target='_blank'>Forbes</a>,
+              <a href='https://www.entrepreneur.com/video/350031' target='_blank'>Entrepreneur</a>,
+              <a href='https://www.google.com/url?sa=D&q=https://www.nbclosangeles.com/news/sports/dodgers-deliver-over-22000-meals-to-families-in-inglewood/2404188&ust=1606280340000000&usg=AOvVaw2n8boADx4tuQGkapNgHEBO&hl=en' target='_blank'>NBC</a>, and more.</p>
+              <p>Interested in learning more? Contact <a href='mailto:yash@helpinghands.community'>me</a> or <a href='mailto:joinus@helpinghands.community'>join us</a></p>
+            </div>
+          </section>
+
+          <div class="divider"></div>
+
+          <section id="Webber_Energy">
+            <div class='projectLine logoDiv'>
+              <div class='logoProject'>
+                <img src='static/utAustinLogo.png' class='img-fluid projectImageSmall'>
               </div>
+            </div>
+            <h1 class="myName">Webber Energy Group</h1>
+            <h3><a href='http://www.webberenergygroup.com/people/yash-patil/' target='_blank'>webberenergygroup.com</a></h2>
+            <br/>
+            <div class="projectDescription">
+              <p>In 2019 I started as a researcher at the Webber Energy Group - a research group in the Mechanical Engineering Department at UT Austin that focuses on critical energy and environmental issues.</p>
+              <p>My work primarly consists of creating open source digital models of Texas’ power grid using <a href='https://pypsa.org' href='_blank'>Python for Power Systems Analysis</a> and <a href='http://switch-model.org/' target='_blank'>SWITCH: Power Systems Planning model.</a></p>
+              <p>I have also built interactive public facing graphical user interfaces for users to discern trends associated with generation, load, and transmission in Texas.</p>
+            </div>
+            <div class='screenshotContainer'>
+              <img src='https://media.giphy.com/media/QAys7CJQL6qbef6Qbx/giphy.gif' width='100%' class='img-fluid'/>
             </div>
             <br/>
-            <div class="projectLine">
-              <div class="project tooltip-bottom" id="helpinghands" data-tooltip="Helping Hands">
-                <img src="static/square_helpinghands.png" class="img-fluid projectImageSmall">
-              </div>
-              <div class="project tooltip-bottom" id="webberEnergy" data-tooltip="Webber Energy">
-                <img src="static/utAustinLogo.png" class="img-fluid projectImageSmall">
-              </div>
-            </div>
-            <div class="projectLine">
-              <div class="project tooltip-bottom" id="echo" data-tooltip="Echo">
-                <img src="static/square_echo.jpg" class="img-fluid projectImageSmall">
-              </div>
-              <div class="project tooltip-bottom" id="gimmesms" data-tooltip="GimmeSMS">
-                <img src="static/square_gimmesms.png" class="img-fluid projectImageSmall">
-              </div>
-              <div class="project tooltip-bottom" id="ecuisina" data-tooltip="Ecuisina">
-                <img src="static/square_ecuisina.png" class="img-fluid projectImageSmall">
+          </section>
+
+          <div class="divider"></div>
+
+          <section id="LASA_Scio">
+            <div class='projectLine logoDiv'>
+              <div class='logoProject'>
+                <img src='static/square_scio.png' class='img-fluid projectImageSmall'>
               </div>
             </div>
-            <div class="projectLine">
-              <div class="project tooltip-bottom" id="lasascio" data-tooltip="LASA SciO">
-                <img src="static/square_scio.png" class="img-fluid projectImageSmall">
-              </div>
-              <div class="project tooltip-bottom" id="orgoDB" data-tooltip="Orgo Database">
-                <img src="static/orgoDB.png" class="img-fluid projectImageSmall">
+            <h1 class="myName">LASA Science Olympiad</h1>
+            <h3><a href='http://lasascio.com' target='_blank'>lasascio.com</a></h2>
+            <br/>
+            <div class="projectDescription">
+              <div class='scioContainer'>
+                <p>I have been participating in <a href='https://soinc.org' target='_blank'>Science Olympiad</a>, a national science competition, with a primary focus in engineering for the past 7 years. I have been captain of the LASA Science Olympiad team since 10th grade.</p>
+                <p>Here are a few of the projects I've built:</p>
+                <div id='myCarousel' class='carousel slide' data-interval='false' data-ride='carousel'>
+                  <ol class='carousel-indicators carousel-indicators-container'>
+                    <li data-target='#myCarousel' data-slide-to='0' class='active'></li>
+                    <li data-target='#myCarousel' data-slide-to='1'></li>
+                    <li data-target='#myCarousel' data-slide-to='2'></li>
+                    <li data-target='#myCarousel' data-slide-to='3'></li>
+                    <li data-target='#myCarousel' data-slide-to='4'></li>
+                    <li data-target='#myCarousel' data-slide-to='5'></li>
+                  </ol>
+                  <div class='carousel-inner carousel-inner-container'>
+                    <div class='carousel-item active'>
+                      <div class='carousel-caption-container'>
+                        <p class='carouselCaptionTitle'>Mission Possible</p>
+                        <p class='carouselCaptionText'>A RubeGoldberg-like device that triggers an end task through a series of defined electrical, mechanical, and chemical actions.</p>
+                      </div>
+                      <video width='100%' controls id='Mission_Possible_player'>
+                        <source src='static/videos/Mission_Possible.mp4' type='video/mp4'>
+                      </video>
+                    </div>
+                    <div class='carousel-item'>
+                      <div class='carousel-caption-container'>
+                        <p class='carouselCaptionTitle'>Mousetrap Vehicle</p>
+                        <p class='carouselCaptionText'>A vehicle using mouse traps as its sole means of propulsion that can push a plastic cup forward, reverse direction, and come to a stop behind the start point at a specified endpoint.</p>
+                      </div>
+                      <video width='100%' controls id='Mousetrap_Vehicle_player'>
+                        <source src='static/videos/Mousetrap_Vehicle.mp4' type='video/mp4'>
+                      </video>
+                    </div>
+                    <div class='carousel-item'>
+                      <div class='carousel-caption-container'>
+                        <p class='carouselCaptionTitle'>Gravity Vehicle</p>
+                        <p class='carouselCaptionText'>A ramp and vehicle (up to 2kg) that uses the gravitational potential energy to propel the car to a target point in the shortest time possible.</p>
+                      </div>
+                      <video width='100%' controls id='Gravity_Vehicle_player'>
+                        <source src='static/videos/Gravity_Vehicle.mp4' type='video/mp4'>
+                      </video>
+                    </div>
+                    <div class='carousel-item'>
+                      <div class='carousel-caption-container'>
+                        <p class='carouselCaptionTitle'>Ping Pong Parachute</p>
+                        <p class='carouselCaptionText'>A rocket and parachute that keeps a ping pong ball aloft for as long as possible.</p>
+                      </div>
+                      <video width='30%' controls id='Ping_Pong_Parachute_player'>
+                        <source src='static/videos/Ping_Pong_Parachute.mp4' type='video/mp4'>
+                      </video>
+                    </div>
+                    <div class='carousel-item'>
+                      <div class='carousel-caption-container'>
+                        <p class='carouselCaptionTitle'>Scrambler</p>
+                        <p class='carouselCaptionText'>A vehicle and launcher that must use the gravitational potential energy of a 2kg mass to propel a car as close to a wall as possible without breaking the egg attached to the front of the car.</p>
+                      </div>
+                      <video width='100%' controls id='Scrambler_player'>
+                        <source src='static/videos/Scrambler.mp4' type='video/mp4'>
+                      </video>
+                    </div>
+                    <div class='carousel-item'>
+                      <div class='carousel-caption-container'>
+                        <p class='carouselCaptionTitle'>Air Trajectory</p>
+                        <p class='carouselCaptionText'>A device that uses air pressure from a falling mass to launch a ping pong ball to a target distance.</p>
+                      </div>
+                      <video width='100%' controls id='Air_Trajectory_player'>
+                        <source src='static/videos/Air_trajectory.mp4' type='video/mp4'>
+                      </video>
+                    </div>
+                  </div>
+                  <a id='scioCarouselPrev' class='carousel-control-prev carousel-controls' href='#myCarousel' role='button' data-slide='prev'>
+                    <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                    <span class='sr-only'>Previous</span>
+                  </a>
+                  <a id='scioCarouselNext' class='carousel-control-next carousel-controls' href='#myCarousel' role='button' data-slide='next'>
+                    <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                    <span class='sr-only'>Next</span>
+                  </a>
+                </div>
               </div>
             </div>
-            <div class="mobileSpacerBottom"></div>
+          </section>
+
+          <div class="divider"></div>
+
+          <section id="Echo">
+            <div class='projectLine logoDiv'>
+              <div class='logoProject'>
+                <img src='static/echoWhale_square.png' class='img-fluid projectImageSmallReducedPadding'>
+              </div>
+            </div>
+            <h1 class="myName">Echo</h1>
+            <h3><a href='https://getecho.app' target='_blank'>getecho.app</a></h2>
+            <br/>
+            <div class="projectDescription">
+              <p>Echo is an app that allows any user to start their own short form podcast series. Users can gain followers, promote their content, and join the conversation by participating in back in forth "audio conversation threads".</p>
+              <p>Here are some photos (Click to enlarge):</p>
+              <div class='row flex-nowrap'>
+                <div class='col-md-3'>
+                  <div class='screenshotContainer pop'>
+                    <img src='static/echo photos/1.png' class='img-fluid'>
+                  </div>
+                </div>
+                <div class='col-md-3'>
+                  <div class='screenshotContainer pop'>
+                    <img src='static/echo photos/2.png' class='img-fluid'>
+                  </div>
+                </div>
+                <div class='col-md-3'>
+                  <div class='screenshotContainer pop'>
+                    <img src='static/echo photos/3.png' class='img-fluid'>
+                  </div>
+                </div>
+                <div class='col-md-3'>
+                  <div class='screenshotContainer pop'>
+                    <img src='static/echo photos/4.png' class='img-fluid'>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="divider"></div>
+
+          <section id="Ecuisina">
+            <div class='projectLine logoDiv'>
+              <div class='logoProject'>
+                <img src='static/square_ecuisina.png' class='img-fluid projectImageSmall'>
+              </div>
+            </div>
+            <h1 class="myName">Ecuisina</h1>
+            <h3><a href='https://ecuisina.com' target='_blank'>ecuisina.com</a></h2>
+            <br/>
+            <div class="projectDescription">
+              <p>An online food trading platform designed to help neighbors barter home cooked foods and experience authentic cuisines locally and affordably.\
+              Post homemade foods that you make and schedule trades with others in your area.</p>
+              <p>Here is a screenshot:</p>
+              <div class='screenshotContainer'>
+                <img src='static/ecuisinaScreenshot.png' class='img-fluid'>
+              </div>
+            </div>
+          </section>
+
+          <div class="divider"></div>
+
+          <section id="GimmeSMS">
+            <div class='projectLine logoDiv'>
+              <div class='logoProject'>
+                <img src='static/square_gimmesms.png' class='img-fluid projectImageSmall'>
+              </div>
+            </div>
+            <h1 class="myName">GimmeSMS</h1>
+            <h3><a href='http://gimmesms.com' target='_blank'>gimmesms.com</a></h2>
+            <br/>
+            <div class="projectDescription">
+              <p>A service for users that don't have cellular data plans to simply text a phone number and receive essential information—such as turn by turn directions, address locations, and weather information—scraped from the web.</p>
+              <p>Here are some photos (Click to enlarge):</p>
+              <div class='row flex-nowrap alignCenter'>
+                <div class='col-md-3'>
+                  <div class='screenshotContainer pop'>
+                    <img src='static/GimmeSMS1.png' class='img-fluid'>
+                  </div>
+                </div>
+                <div class='col-md-3'>
+                  <div class='screenshotContainer pop'>
+                    <img src='static/GimmeSMS2.png' class='img-fluid'>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="divider"></div>
+
+          <section id="OrgoDB">
+            <div class='projectLine logoDiv'>
+              <div class='logoProject'>
+                <img src='static/orgoDB.png' class='img-fluid projectImageSmall'>
+              </div>
+            </div>
+            <h1 class="myName">Orgo Problem Database</h1>
+            <h3><a href='https://orgodb-d7768.firebaseapp.com' target='_blank'>orgodb-d7768.firebaseapp.com</a></h2>
+            <br/>
+            <div class="projectDescription">
+              <p>After the database a teacher of mine used to source problems for his Organic Chemistry courses was taken down, I reconstructed an in-house version that is searchable.</p>
+              <p>This app was built using React and Firebase as well as a few python scripts I wrote to analyze a PDF file and assign keywords to problems.</p>
+              <p>Here is a screenshot:</p>
+              <div class='screenshotContainer'>
+                <img src='static/orgoDBscreenshot.png' class='img-fluid'>
+              </div>
+            </div>
+          </section>
+          <br/>
+        </div>
+        <div class="footer">
+          <p class="footerText">Copyright © Yash Patil 2020. All Rights Reserved.</p>
+        </div>
+        <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+              	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <img src="" class="imagepreview" style="width: 100%;" >
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <script>
-      $( "#profile" ).click(function() {
-        $("#logoDiv").html("\
-        <div class='projectLine logoDiv'>\
-          <div class='initialsLogo'>\
-            <div class='initials'>\
-              <h1 class='initialsText'>Y</h1>\
-            </div>\
-          </div>\
-        </div>\
-        ");
-        $("#leftSideInner").attr('class', 'leftSideInner');
-        $("#sectionTitle").html("Yash Patil");
-        $("#sectionUrl").html("");
-        $("#sectionInfo").html("\
-          <p>Hey, I'm Yash, a student at LASA High School in Austin, Texas.\
-             I enjoy building devices for <a href='https://soinc.org' target='_blank'>Science Olympiad</a> and working on projects that solve real needs.</p>\
-             \
-          <p>Recently, I co-founded <a href='https://helpinghands.community' target='_blank'>Helping Hands</a>, a nonprofit organization that provides free grocery delivery for those most vunerable to COVID-19: senior citizens, the immunocompromised, and people with pre-existing medical conditions which put them at additional risk.</p>\
-             \
-          <p>Check out more of my projects by clicking on icons to the right!</p>\
-            \
-          <p><a href='https://www.linkedin.com/in/yash-s-patil/' target='_blank'>LinkedIn</a> - <a href='https://github.com/ypat125' target='_blank'>Github</a> - <a href='static/Resume.pdf' target='_blank'>Resume</a><p>\
-             \
-          <p>Contact me: <a href='mailto:yash.s.patil125@gmail.com'>yash.s.patil125@gmail.com</a></p>\
-        ");
-        $(window).scrollTop(0);
-      });
-
-      $( "#helpinghands" ).click(function() {
-        $("#logoDiv").html("\
-        <div class='projectLine logoDiv'>\
-          <div class='logoProject'>\
-            <img src='static/square_helpinghands.png' class='img-fluid projectImageSmall'>\
-          </div>\
-        </div>\
-        ");
-        $("#leftSideInner").attr('class', '');
-        $("#sectionTitle").html("Helping Hands");
-        $("#sectionUrl").html("<a href='https://helpinghands.community' target='_blank'>helpinghands.community</a>");
-        $("#sectionInfo").html("\
-        <p>I co-founded Helping Hands alongside with my brother and two former executives from Facebook and Uber.</p>\
-        <p>Helping Hands is a nonprofit organization dedicated to serving those most vulnerable to COVID-19: senior citizens, the immunocompromised, and people with pre-existing medical conditions which put them at additional risk.</p>\
-        <p>Our community volunteers deliver groceries, medicine, and other necessary supplies to empower everyone to stay healthy and be as responsible as they can be.</p>\
-        <p>As of November 2020, we have delivered over 250,000 meals through our platform and partnered with logistics providers like <a href='https://www.uber.com/' target='_blank'>Uber</a>, <a href='https://www.lyft.com/' target='_blank'>Lyft</a>, and <a href='https://axlehire.com/' target='_blank'>Axlehire</a> to deliver food at scale.</p>\
-        <p>Helping Hands has been featured in many publications such as <a href='https://cbsaustin.com/news/local/two-austin-brothers-develop-program-to-connect-the-most-vulnerable-with-volunteers-to-help' target='_blank'>CBS</a>,\
-        <a href='https://www.fox7austin.com/news/austin-brothers-help-build-website-to-connect-immunocompromised-with-volunteers' target='_blank'>FOX</a>,\
-        <a href='https://www.mercurynews.com/2020/04/17/coronavirus-bay-area-seniors-vulnerable-people-can-get-help-with-shopping-errands/' target='_blank'>The Mercury News</a>,\
-        <a href='https://www.forbes.com/sites/chelseadavis/2020/04/15/helping-hands-the-bay-areas-grassroots-response-to-covid-19/#7bc2634a1951' target='_blank'>Forbes</a>,\
-        <a href='https://www.entrepreneur.com/video/350031' target='_blank'>Entrepreneur</a>,\
-        <a href='https://www.google.com/url?sa=D&q=https://www.nbclosangeles.com/news/sports/dodgers-deliver-over-22000-meals-to-families-in-inglewood/2404188&ust=1606280340000000&usg=AOvVaw2n8boADx4tuQGkapNgHEBO&hl=en' target='_blank'>NBC</a>, and more.</p>\
-        <p>Interested in learning more? Contact <a href='mailto:yash@helpinghands.community'>me</a> or <a href='mailto:joinus@helpinghands.community'>join us<a></p>\
-        ");
-        $(window).scrollTop(0);
-      });
-
-      $( "#webberEnergy" ).click(function() {
-        $("#logoDiv").html("\
-        <div class='projectLine logoDiv'>\
-          <div class='logoProject'>\
-            <img src='static/utAustinLogo.png' class='img-fluid projectImageSmall'>\
-          </div>\
-        </div>\
-        ");
-        $("#leftSideInner").attr('class', '');
-        $("#sectionTitle").html("Webber Energy Group");
-        $("#sectionUrl").html("<a href='http://www.webberenergygroup.com/people/yash-patil/' target='_blank'>webberenergygroup.com</a>");
-        $("#sectionInfo").html("\
-        <p>In 2019 I started as a researcher at the Webber Energy Group - a research group in the Mechanical Engineering Department at UT Austin that focuses on critical energy and environmental issues.</p>\
-        \
-        <p>My work primarly consists of creating open source digital models of Texas’ power grid using <a href='https://pypsa.org' href='_blank'>Python for Power Systems Analysis</a> and <a href='http://switch-model.org/' target='_blank'>SWITCH: Power Systems Planning model.</a></p>\
-        \
-        <p>I have also built interactive public facing graphical user interfaces for users to discern trends associated with generation, load, and transmission in Texas.</p>\
-        <div class='screenshotContainer'>\
-          <img src='https://media.giphy.com/media/QAys7CJQL6qbef6Qbx/giphy.gif' width='100%' class='img-fluid'/>\
-        </div>\
-        ");
-        $(window).scrollTop(0);
-      });
-
-      $( "#echo" ).click(function() {
-        $("#logoDiv").html("\
-        <div class='projectLine logoDiv'>\
-          <div class='logoProject'>\
-            <img src='static/square_echo.jpg' class='img-fluid projectImageSmall'>\
-          </div>\
-        </div>\
-        ");
-        $("#leftSideInner").attr('class', '');
-        $("#sectionTitle").html("Echo");
-        $("#sectionUrl").html("<a href='https://getecho.app' target='_blank'>getecho.app</a>");
-        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-          $("#sectionInfo").html("\
-          <p>Echo is an app that allows any user to start their own short form podcast series. Users can gain followers, promote their content, and join the conversation by participating in back in forth \"audio conversation threads\".</p>\
-          ");
-        } else {
-          $("#sectionInfo").html("\
-          <p>Echo is an app that allows any user to start their own short form podcast series. Users can gain followers, promote their content, and join the conversation by participating in back in forth \"audio conversation threads\".</p>\
-          <p>Here are some photos:</p>\
-          <div class='row'>\
-            <div class='col-md-6'>\
-              <div class='screenshotContainer'>\
-                <img src='static/echo photos/1.png' class='img-fluid'>\
-              </div>\
-            </div>\
-            <div class='col-md-6'>\
-              <div class='screenshotContainer'>\
-                <img src='static/echo photos/2.png' class='img-fluid'>\
-              </div>\
-            </div>\
-          </div>\
-          <br/>\
-          <div class='row'>\
-            <div class='col-md-6'>\
-              <div class='screenshotContainer'>\
-                <img src='static/echo photos/3.png' class='img-fluid'>\
-              </div>\
-            </div>\
-            <div class='col-md-6'>\
-              <div class='screenshotContainer'>\
-                <img src='static/echo photos/4.png' class='img-fluid'>\
-              </div>\
-            </div>\
-          </div>\
-          <br/>\
-          <div class='row'>\
-            <div class='col-md-6'>\
-              <div class='screenshotContainer'>\
-                <img src='static/echo photos/5.png' class='img-fluid'>\
-              </div>\
-            </div>\
-            <div class='col-md-6'>\
-              <div class='screenshotContainer'>\
-                <img src='static/echo photos/6.png' class='img-fluid'>\
-              </div>\
-            </div>\
-          </div>\
-          ");
-        }
-        $(window).scrollTop(0);
-      });
-
-      $( "#gimmesms" ).click(function() {
-        $("#logoDiv").html("\
-        <div class='projectLine logoDiv'>\
-          <div class='logoProject'>\
-            <img src='static/square_gimmesms.png' class='img-fluid projectImageSmall'>\
-          </div>\
-        </div>\
-        ");
-        $("#leftSideInner").attr('class', '');
-        $("#sectionTitle").html("GimmeSMS");
-        $("#sectionUrl").html("<a href='http://gimmesms.com' target='_blank'>gimmesms.com</a>");
-        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-          $("#sectionInfo").html("\
-            <p>A service for users that don't have cellular data plans to simply text a phone number and receive essential information—such as turn by turn directions, address locations, and weather information—scraped from the web.</p>\
-          ");
-        } else {
-          $("#sectionInfo").html("\
-            <p>A service for users that don't have cellular data plans to simply text a phone number and receive essential information—such as turn by turn directions, address locations, and weather information—scraped from the web.</p>\
-            <p>Here are some photos:</p>\
-            <div class='row'>\
-              <div class='col-md-6'>\
-                <div class='screenshotContainer'>\
-                  <img src='static/GimmeSMS1.png' class='img-fluid'>\
-                </div>\
-              </div>\
-              <div class='col-md-6'>\
-                <div class='screenshotContainer'>\
-                  <img src='static/GimmeSMS2.png' class='img-fluid'>\
-                </div>\
-              </div>\
-            </div>\
-          ");
-        }
-        $(window).scrollTop(0);
-      });
-
-      $( "#ecuisina" ).click(function() {
-        $("#logoDiv").html("\
-        <div class='projectLine logoDiv'>\
-          <div class='logoProject'>\
-            <img src='static/square_ecuisina.png' class='img-fluid projectImageSmall'>\
-          </div>\
-        </div>\
-        ");
-        $("#leftSideInner").attr('class', '');
-        $("#sectionTitle").html("Ecuisina");
-        $("#sectionUrl").html("<a href='https://ecuisina.com' target='_blank'>ecuisina.com</a>");
-        $("#sectionInfo").html("\
-          <p>An online food trading platform designed to help neighbors barter home cooked foods and experience authentic cuisines locally and affordably.\
-          Post homemade foods that you make and schedule trades with others in your area.</p>\
-          <p>Here is a screenshot:</p>\
-          <div class='screenshotContainer'>\
-            <img src='static/ecuisinaScreenshot.png' class='img-fluid'>\
-          </div>\
-        ");
-        $(window).scrollTop(0);
-      });
-
-      $( "#lasascio" ).click(function() {
-        $("#logoDiv").html("\
-        <div class='projectLine logoDiv'>\
-          <div class='logoProject'>\
-            <img src='static/square_scio.png' class='img-fluid projectImageSmall'>\
-          </div>\
-        </div>\
-        ");
-        $("#leftSideInner").attr('class', '');
-        $("#sectionTitle").html("LASA Science Olympiad");
-        $("#sectionUrl").html("<a href='http://lasascio.com' target='_blank'>lasascio.com</a>");
-        $("#sectionInfo").html("\
-        <div class='scioContainer'>\
-          <p>I have been participating in <a href='https://soinc.org' target='_blank'>Science Olympiad</a>, a national science competition, with a primary focus in engineering for the past 7 years. I have been captain of the LASA Science Olympiad team since 10th grade.</p>\
-          <p>Here are a few of the projects I've built:</p>\
-          <div id='myCarousel' class='carousel slide' data-interval='false' data-ride='carousel'>\
-            <ol class='carousel-indicators carousel-indicators-container'>\
-              <li data-target='#myCarousel' data-slide-to='0' class='active'></li>\
-              <li data-target='#myCarousel' data-slide-to='1'></li>\
-              <li data-target='#myCarousel' data-slide-to='2'></li>\
-              <li data-target='#myCarousel' data-slide-to='3'></li>\
-              <li data-target='#myCarousel' data-slide-to='4'></li>\
-              <li data-target='#myCarousel' data-slide-to='5'></li>\
-            </ol>\
-            <div class='carousel-inner carousel-inner-container'>\
-              <div class='carousel-item active'>\
-                <div class='carousel-caption-container'>\
-                  <p class='carouselCaptionTitle'>Mission Possible</p>\
-                  <p class='carouselCaptionText'>A RubeGoldberg-like device that triggers an end task through a series of defined electrical, mechanical, and chemical actions.</p>\
-                </div>\
-                <video width='100%' controls id='Mission_Possible_player'>\
-                  <source src='static/videos/Mission_Possible.mp4' type='video/mp4'>\
-                </video>\
-              </div>\
-              <div class='carousel-item'>\
-                <div class='carousel-caption-container'>\
-                  <p class='carouselCaptionTitle'>Mousetrap Vehicle</p>\
-                  <p class='carouselCaptionText'>A vehicle using mouse traps as its sole means of propulsion that can push a plastic cup forward, reverse direction, and come to a stop behind the start point at a specified endpoint.</p>\
-                </div>\
-                <video width='100%' controls id='Mousetrap_Vehicle_player'>\
-                  <source src='static/videos/Mousetrap_Vehicle.mp4' type='video/mp4'>\
-                </video>\
-              </div>\
-              <div class='carousel-item'>\
-                <div class='carousel-caption-container'>\
-                  <p class='carouselCaptionTitle'>Gravity Vehicle</p>\
-                  <p class='carouselCaptionText'>A ramp and vehicle (up to 2kg) that uses the gravitational potential energy to propel the car to a target point in the shortest time possible.</p>\
-                </div>\
-                <video width='100%' controls id='Gravity_Vehicle_player'>\
-                  <source src='static/videos/Gravity_Vehicle.mp4' type='video/mp4'>\
-                </video>\
-              </div>\
-              <div class='carousel-item'>\
-                <div class='carousel-caption-container'>\
-                  <p class='carouselCaptionTitle'>Ping Pong Parachute</p>\
-                  <p class='carouselCaptionText'>A rocket and parachute that keeps a ping pong ball aloft for as long as possible.</p>\
-                </div>\
-                <video width='30%' controls id='Ping_Pong_Parachute_player'>\
-                  <source src='static/videos/Ping_Pong_Parachute.mp4' type='video/mp4'>\
-                </video>\
-              </div>\
-              <div class='carousel-item'>\
-                <div class='carousel-caption-container'>\
-                  <p class='carouselCaptionTitle'>Scrambler</p>\
-                  <p class='carouselCaptionText'>A vehicle and launcher that must use the gravitational potential energy of a 2kg mass to propel a car as close to a wall as possible without breaking the egg attached to the front of the car.</p>\
-                </div>\
-                <video width='100%' controls id='Scrambler_player'>\
-                  <source src='static/videos/Scrambler.mp4' type='video/mp4'>\
-                </video>\
-              </div>\
-              <div class='carousel-item'>\
-                <div class='carousel-caption-container'>\
-                  <p class='carouselCaptionTitle'>Air Trajectory</p>\
-                  <p class='carouselCaptionText'>A device that uses air pressure from a falling mass to launch a ping pong ball to a target distance.</p>\
-                </div>\
-                <video width='100%' controls id='Air_Trajectory_player'>\
-                  <source src='static/videos/Air_trajectory.mp4' type='video/mp4'>\
-                </video>\
-              </div>\
-            </div>\
-            <a id='scioCarouselPrev' class='carousel-control-prev carousel-controls' href='#myCarousel' role='button' data-slide='prev'>\
-              <span class='carousel-control-prev-icon' aria-hidden='true'></span>\
-              <span class='sr-only'>Previous</span>\
-            </a>\
-            <a id='scioCarouselNext' class='carousel-control-next carousel-controls' href='#myCarousel' role='button' data-slide='next'>\
-              <span class='carousel-control-next-icon' aria-hidden='true'></span>\
-              <span class='sr-only'>Next</span>\
-            </a>\
-          </div>\
-        </div>");
-        $(window).scrollTop(0);
-      });
-
       $('body').on('click', 'a.carousel-controls', function() {
         document.getElementById('Mission_Possible_player').pause();
         document.getElementById('Mousetrap_Vehicle_player').pause();
@@ -588,26 +398,23 @@
         document.getElementById('Air_Trajectory_player').pause();
       });
 
-      $( "#orgoDB" ).click(function() {
-        $("#logoDiv").html("\
-        <div class='projectLine logoDiv'>\
-          <div class='logoProject'>\
-            <img src='static/orgoDB.png' class='img-fluid projectImageSmall'>\
-          </div>\
-        </div>\
-        ");
-        $("#leftSideInner").attr('class', '');
-        $("#sectionTitle").html("Orgo Problem Database");
-        $("#sectionUrl").html("<a href='https://orgodb-d7768.firebaseapp.com' target='_blank'>orgodb-d7768.firebaseapp.com</a>");
-        $("#sectionInfo").html("\
-        <p>After the database a teacher of mine used to source problems for his Organic Chemistry courses was taken down, I reconstructed an in-house version that is searchable.</p>\
-        <p>This app was built using React and Firebase as well as a few python scripts I wrote to analyze a PDF file and assign keywords to problems.</p>\
-        <p>Here is a screenshot:</p>\
-        <div class='screenshotContainer'>\
-          <img src='static/orgoDBscreenshot.png' class='img-fluid'>\
-        </div>\
-        ");
-        $(window).scrollTop(0);
+      var showToolBar = true;
+
+      $('#toggleButton').on( 'click', function() {
+        showToolBar = !showToolBar;
+        $( ".toolbarInners" ).toggle();
+        $( ".toolbarContainer" ).toggleClass( "pushToTop" );
+        if (showToolBar) {
+          $("#toggleButtonIcon").html("close");
+        } else {
+          $("#toggleButtonIcon").html("menu");
+        }
+      });
+
+      $('.pop').on('click', function() {
+        console.log("ASDASD");
+        $('.imagepreview').attr('src', $(this).find('img').attr('src'));
+        $('#imagemodal').modal('show');
       });
     </script>
 
