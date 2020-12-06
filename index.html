@@ -400,6 +400,17 @@
 
       var showToolBar = true;
 
+      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        showToolBar = !showToolBar;
+        $( ".toolbarInners" ).toggle();
+        $( ".toolbarContainer" ).toggleClass( "pushToTop" );
+        if (showToolBar) {
+          $("#toggleButtonIcon").html("close");
+        } else {
+          $("#toggleButtonIcon").html("menu");
+        }
+      }
+
       $('#toggleButton').on( 'click', function() {
         showToolBar = !showToolBar;
         $( ".toolbarInners" ).toggle();
