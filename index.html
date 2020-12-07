@@ -416,12 +416,17 @@
         }
       }
 
+      var windowWidth = 0;
+
       $( document ).ready(function() {
+        windowWidth = $(window).width();
         toolBarConfigure();
       });
 
       $( window ).resize(function() {
-        toolBarConfigure();
+        if ($(window).width() != windowWidth){
+          toolBarConfigure();
+        }
       });
 
       $('#toggleButton').on( 'click', function() {
