@@ -8,6 +8,13 @@
   src: url(./static/fonts/AvenirNextLTPro-Bold.otf);
 }
 
+::selection {
+  background: grey; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: grey; /* Gecko Browsers */
+}
+
 html {
   scroll-behavior: smooth;
   background-color:#f53f3b;
