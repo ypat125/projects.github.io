@@ -45,12 +45,12 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12 content">
-          <div class="toolbarContainer">
+          <div class="toolbarContainer pushToTop">
             <div class="toolbar">
               <div id="toggleButton" class="item tooltip-left" data-tooltip="Toggle toolbar">
                 <i id="toggleButtonIcon" class="material-icons">close</i>
               </div>
-              <div id="toolbarInners" class="toolbarInners">
+              <div id="toolbarInners" class="toolbarInners" style="display: none;">
                 <div id="toggleButtonDivider" class="toolbarDivider"></div>
                 <a href="#About_Me" class="item tooltip-left" data-tooltip="About Me">
                   <div class="initialsToolbar">YP</div>
@@ -87,22 +87,27 @@
             </div>
           </div>
           <section id="About_Me">
-            <br/>
-            <div>
-              <div class='projectLine logoDiv'>
+            <div class="row aboutMeContainer animated animatedFadeInUp fadeInUp">
+              <div id="Intro_Paragraph" class="col-md-8 aboutMeInfo">
+                <div>
+                  <h1 class="myName">Yash Patil</h1>
+                  <br/>
+                  <div class="projectDescription">
+                    <p>Hi there! I'm Yash, a student at LASA High School in Austin, Texas. I enjoy engineering devices for <a href="#LASA_Scio">Science Olympiad</a> and building products that solve real needs.</p>
+                    <p>Recently, I co-founded <a href="https://helpinghands.community" target="_blank">Helping Hands</a>, a nonprofit startup that streamlines how food banks and social service organizations deliver food to those most vulnerable to COVID-19.</p>
+                    <p><a href="https://www.linkedin.com/in/yash-s-patil/" target="_blank">LinkedIn</a> - <a href="https://github.com/ypat125" target="_blank">Github</a> - <a href="static/Resume.pdf" target="_blank">Resume</a><p>
+                    <p>Contact me: <a href="mailto:yash.s.patil125@gmail.com">yash.s.patil125@gmail.com</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 AboutMePhotoContainer">
                 <div class="profile">
                   <img src="static/Profile.jpg" alt="Yash Patil profile photo" alt="Yash Patil" class="img-fluid profileImage">
                 </div>
               </div>
             </div>
-            <h1 class="myName">Yash Patil</h1>
-            <br/>
-            <div class="projectDescription">
-              <p>Hi there! I'm Yash, a student at LASA High School in Austin, Texas. I enjoy building devices for <a href="#LASA_Scio">Science Olympiad</a> and working on projects that solve real needs.</p>
-              <p>Recently, I co-founded <a href="https://helpinghands.community" target="_blank">Helping Hands</a>, a nonprofit startup that provides free grocery delivery for those most vulnerable to COVID-19: senior citizens, the immunocompromised, and people with pre-existing medical conditions that put them at additional risk.</p>
-              <p>Check out more of my projects below!</p>
-              <p><a href="https://www.linkedin.com/in/yash-s-patil/" target="_blank">LinkedIn</a> - <a href="https://github.com/ypat125" target="_blank">Github</a> - <a href="static/Resume.pdf" target="_blank">Resume</a><p>
-              <p>Contact me: <a href="mailto:yash.s.patil125@gmail.com">yash.s.patil125@gmail.com</a></p>
+            <div class="scrollDownIndicator">
+              <p>↓ ↓ ↓</p>
             </div>
           </section>
 
@@ -145,7 +150,7 @@
               </div>
             </div>
           </section>
-
+          <br/>
           <div class="divider"></div>
 
           <section id="Webber_Energy">
@@ -262,7 +267,7 @@
               </div>
             </div>
           </section>
-
+          <br/>
           <div class="divider"></div>
 
           <section id="Echo">
@@ -303,7 +308,7 @@
               </div>
             </div>
           </section>
-
+          <br/>
           <div class="divider"></div>
 
           <section id="Ecuisina">
@@ -326,7 +331,7 @@
               </div>
             </div>
           </section>
-
+          <br/>
           <div class="divider"></div>
 
           <section id="GimmeSMS">
@@ -357,7 +362,7 @@
               </div>
             </div>
           </section>
-
+          <br/>
           <div class="divider"></div>
 
           <section id="OrgoDB">
@@ -406,34 +411,29 @@
         document.getElementById('Air_Trajectory_player').pause();
       });
 
-      var showToolBar = true;
-
-      function toolBarConfigure() {
-        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || $(window).width() < 645 ) {
-          showToolBar = false;
-          $( ".toolbarInners" ).hide();
-          $( ".toolbarContainer" ).addClass( "pushToTop" );
-          $( "#toggleButton" ).show();
-          $("#toggleButtonIcon").html("menu");
-        } else {
-          showToolBar = true;
-          $( ".toolbarInners" ).show();
-          $( ".toolbarContainer" ).removeClass( "pushToTop" );
-          $( "#toggleButton" ).hide();
-          $( "#toggleButtonDivider" ).hide();
-        }
-      }
-
-      var windowWidth = 0;
+      var showToolBar = false;
 
       $( document ).ready(function() {
-        windowWidth = $(window).width();
-        toolBarConfigure();
+        $( ".toolbarInners" ).hide();
+        $( "#toggleButton" ).show();
+        $("#toggleButtonIcon").html("menu");
       });
 
+      var mobileView = false
+
       $( window ).resize(function() {
-        if ($(window).width() != windowWidth){
-          toolBarConfigure();
+        if ($(window).width() <= 1200){
+          mobileView = true;
+        } else {
+          mobileView = false;
+        }
+
+        if (mobileView) {
+          $( "#Intro_Paragraph" ).addClass( "col-md-12" );
+          $( "#Intro_Paragraph" ).removeClass( "col-md-8" );
+        } else {
+          $( "#Intro_Paragraph" ).removeClass( "col-md-12" );
+          $( "#Intro_Paragraph" ).addClass( "col-md-8" );
         }
       });
 
