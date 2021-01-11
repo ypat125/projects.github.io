@@ -93,8 +93,8 @@
                   <h1 class="myName">Yash Patil -
                     <span
                      class="txt-rotate typeWriterText"
-                     data-period="4000"
-                     data-rotate='[ "Software Developer", "Entrepreneur", "Student"]'></span>
+                     data-period="5000"
+                     data-rotate='["Software Developer.", "Entrepreneur.", "Student."]'></span>
                   </h1>
                   <br/>
                   <div class="projectDescription">
@@ -107,22 +107,7 @@
               </div>
               <div class="col-md-4 AboutMePhotoContainer">
                 <div class="profile">
-                  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img src="static/Profile.jpg" alt="Yash Patil profile photo" alt="Yash Patil" class="img-fluid profileImage">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="static/Profile3.jpg" alt="Yash Patil snow photo" alt="Yash Patil" class="img-fluid profileImage">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="static/Profile1.jpg" alt="Yash Patil hike photo" alt="Yash Patil" class="img-fluid profileImage">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="static/Profile5.jpg" alt="Yash Patil geyser photo" alt="Yash Patil" class="img-fluid profileImage">
-                      </div>
-                    </div>
-                  </div>
+                  <img src="static/Profile.jpg" alt="Yash Patil profile photo" alt="Yash Patil" class="img-fluid profileImage">
                 </div>
               </div>
             </div>
@@ -496,7 +481,7 @@
         this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
 
         var that = this;
-        var delta = 120;
+        var delta = 80;
 
         if (this.isDeleting) { delta /= 2; }
 
@@ -523,11 +508,6 @@
             new TxtRotate(elements[i], JSON.parse(toRotate), period);
           }
         }
-        // INJECT CSS
-        var css = document.createElement("style");
-        css.type = "text/css";
-        css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
-        document.body.appendChild(css);
       };
     </script>
 
