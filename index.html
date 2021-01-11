@@ -94,7 +94,7 @@
                     <span
                      class="txt-rotate typeWriterText"
                      data-period="5000"
-                     data-rotate='["Software Developer.", "Entrepreneur.", "Student."]'></span>
+                     data-rotate='["Software Developer.", "Entrepreneur.", "Student."]'>Software Developer.</span>
                   </h1>
                   <br/>
                   <div class="projectDescription">
@@ -463,9 +463,9 @@
         this.el = el;
         this.loopNum = 0;
         this.period = parseInt(period, 10) || 2000;
-        this.txt = '';
+        this.txt = 'Software Developer.';
         this.tick();
-        this.isDeleting = false;
+        this.isDeleting = true;
       };
 
       TxtRotate.prototype.tick = function() {
