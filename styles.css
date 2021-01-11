@@ -179,8 +179,8 @@ a {
 }
 
 a:hover {
-  color: #7E7D7B;
-  text-decoration: underline;
+  color: #0aeecc;
+  text-decoration: underline!important;
   text-underline-position: under;
 }
 
