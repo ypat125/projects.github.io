@@ -133,7 +133,7 @@ h3 {
   border-radius: 3px;
   border-width: 2px;
   border-style: solid;
-  border-color: #35363a;
+  border-color: #979693;
 }
 
 .projectDescription {
@@ -147,21 +147,15 @@ h3 {
 }
 
 .screenshotContainerHelpingHandsLeft {
-  border-bottom: 10px solid #35363a;
-  border-top-left-radius: 4px;
-  border-top: 10px solid #35363a;
-  border-bottom-left-radius: 4px;
-  border-left: 10px solid #35363a;
-  border-right: 5px solid #35363a;
+  border-right: 5px solid #202124;
 }
 
 .screenshotContainerHelpingHandsRight {
-  border-bottom: 10px solid #35363a;
-  border-top-right-radius: 4px;
-  border-top: 10px solid #35363a;
-  border-bottom-right-radius: 4px;
-  border-right: 10px solid #35363a;
-  border-left: 5px solid #35363a;
+  border-left: 5px solid #202124;
+}
+
+.curvedImageCorners {
+  border-radius: 10px;
 }
 
 .content {
@@ -298,8 +292,7 @@ a:hover {
 
 .screenshotContainer {
   border-style: solid;
-  border-width: 10px;
-  border-color: #35363a;
+  border-color: #202124;
   border-radius: 4px;
 }
 
