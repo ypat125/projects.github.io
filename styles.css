@@ -68,7 +68,6 @@ h3 {
 
 @keyframes fadeInUp {
     from {
-        transform: translate3d(0,40px,0)
     }
 
     to {
@@ -79,7 +78,6 @@ h3 {
 
 @-webkit-keyframes fadeInUp {
     from {
-        transform: translate3d(0,40px,0)
     }
 
     to {
@@ -89,9 +87,9 @@ h3 {
 }
 
 .animated {
-    animation-duration: 1s;
+    animation-duration: 2s;
     animation-fill-mode: both;
-    -webkit-animation-duration: 1s;
+    -webkit-animation-duration: 2s;
     -webkit-animation-fill-mode: both
 }
 
