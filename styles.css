@@ -50,6 +50,7 @@ h3 {
   font-size: 20px;
   transform: translatey(0px);
   animation: float 6s ease-in-out infinite;
+  color: #35363a;
 }
 
 @keyframes float {
