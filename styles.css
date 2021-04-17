@@ -377,17 +377,17 @@ a:hover {
   margin-left: 10px;
   height: 250px;
   width: 250px;
-  border-radius: 75px;
-  border-style: dashed;
-  border-width: 4px;
-  border-color: #35363a;
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
 .profileImage {
   height: 230px;
   width: 230px;
-  border-radius: 70px;
+  border-radius: 150px;
+  border-style: solid;
+  border-width: 10px;
+  border-color: #35363a;
+  filter: brightness(0.7);
 }
 
 .scioEventName {
