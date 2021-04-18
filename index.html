@@ -378,16 +378,6 @@
         document.getElementById('Air_Trajectory_player').pause();
       });
 
-      var showToolBar = false;
-
-      $( document ).ready(function() {
-        $( ".toolbarInners" ).hide();
-        $( "#toggleButton" ).show();
-        $("#toggleButtonIcon").html("menu");
-      });
-
-      var mobileView = false
-
       $( window ).resize(function() {
         if ($(window).width() <= 1200){
           mobileView = true;
@@ -401,17 +391,6 @@
         } else {
           $( "#Intro_Paragraph" ).removeClass( "col-md-12" );
           $( "#Intro_Paragraph" ).addClass( "col-md-8" );
-        }
-      });
-
-      $('#toggleButton').on( 'click', function() {
-        showToolBar = !showToolBar;
-        $( ".toolbarInners" ).toggle();
-        $( ".toolbarContainer" ).toggleClass( "pushToTop" );
-        if (showToolBar) {
-          $("#toggleButtonIcon").html("close");
-        } else {
-          $("#toggleButtonIcon").html("menu");
         }
       });
 
