@@ -238,7 +238,8 @@ a:hover {
 
 .stanfordColor {
 	color: #9d2235;
-	text-decoration: none
+	text-decoration: none;
+	filter: brightness(.9)
 }
 
 .stanfordColor:hover {
