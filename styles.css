@@ -236,6 +236,15 @@ a:hover {
 	flex-wrap: wrap
 }
 
+.stanfordWhite {
+	color: #b0afac;
+	text-decoration: none;
+}
+
+.stanfordWhite:hover {
+	text-decoration: none!important
+}
+
 .stanfordColor {
 	color: #9d2235;
 	text-decoration: none;
