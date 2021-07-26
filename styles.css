@@ -54,7 +54,8 @@ h3 {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	font-size: 10px
+	font-size: 10px;
+	color: #F5f5F5;
 }
 
 @keyframes float {
