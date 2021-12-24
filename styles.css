@@ -1,5 +1,5 @@
 @font-face {
-	font-family: AvenirRegular;
+	font-family: gtRegular;
 	src: url(static/fonts/AvenirNextLTPro-Regular.otf)
 }
 
@@ -8,21 +8,62 @@
 	src: url(static/fonts/AvenirNextLTPro-Bold.otf)
 }
 
+@font-face {
+	font-family: gtBlack;
+	src: url(static/fonts/GTWalsheimPro-Black.ttf);
+}
+
+@font-face {
+	font-family: gtBold;
+	src: url(static/fonts/GTWalsheimPro-Bold.ttf);
+}
+
+@font-face {
+	font-family: gtLight;
+	src: url(static/fonts/GTWalsheimPro-Light.ttf);
+}
+
+@font-face {
+	font-family: gtMedium;
+	src: url(static/fonts/GTWalsheimPro-Medium.ttf);
+}
+
+@font-face {
+	font-family: gtRegular;
+	src: url(static/fonts/GTWalsheimPro-Regular.ttf);
+}
+
+@font-face {
+	font-family: gtThin;
+	src: url(static/fonts/GTWalsheimPro-Thin.ttf);
+}
+
+@font-face {
+	font-family: gtUltraBold;
+	src: url(static/fonts/GTWalsheimPro-UltraBold.ttf);
+}
+
+@font-face {
+	font-family: gtUltraLight;
+	src: url(static/fonts/GTWalsheimPro-UltraLight.ttf);
+}
+
 ::selection {
-	background: grey
+	background: lightcyan
 }
 
 ::-moz-selection {
-	background: grey
+	background: lightcyan
 }
 
 html {
 	scroll-behavior: smooth;
-	background-color: #202124
 }
 
 img {
-	filter: brightness(80%)
+	border-style: solid;
+	border-color: #f5f5f5;
+	border-radius: 4px
 }
 
 p {
@@ -37,6 +78,12 @@ h3 {
 	font-size: 25px
 }
 
+.projectQuickLink {
+	height: 100px;
+	width: 100px;
+	background-color: red;
+}
+
 .scrollDownIndicator {
 	height: 10px;
 	width: 100%;
@@ -46,7 +93,7 @@ h3 {
 	flex-direction: row;
 	justify-content: center;
 	font-size: 10px;
-	color: #35363a
+	color: black
 }
 
 .scrollDownIndicatorInner {
@@ -55,7 +102,7 @@ h3 {
 	justify-content: center;
 	align-items: center;
 	font-size: 10px;
-	color: #979693;
+	color: black;
 }
 
 @keyframes float {
@@ -110,16 +157,11 @@ h3 {
 	height: 100vh
 }
 
-.AboutMePhotoContainer {
-	display: flex;
-	justify-content: center;
-	align-items: center
-}
-
 .myName {
 	padding-top: 35px;
-	font-family: AvenirRegular;
-	font-weight: 700
+	font-family: gtRegular;
+	font-weight: 700;
+	color: #6138FF;
 }
 
 .builtUsingTag {
@@ -130,20 +172,12 @@ h3 {
 	border-radius: 3px;
 	border-width: 2px;
 	border-style: solid;
-	border-color: #979693
+	border-color: black;
 }
 
 .projectDescription {
-	font-family: AvenirRegular;
+	font-family: gtRegular;
 	width: 100%
-}
-
-.screenshotContainerHelpingHandsLeft {
-	border-right: 5px solid #202124
-}
-
-.screenshotContainerHelpingHandsRight {
-	border-left: 5px solid #202124
 }
 
 .curvedImageCorners {
@@ -151,25 +185,23 @@ h3 {
 }
 
 .content {
-	background-color: #202124;
 	font-family: 'Open Sans', sans-serif;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	padding-left: 10em;
 	padding-right: 10em;
-	color: #979693;
-	text-decoration-color: red
+	color: black;
 }
 
 a {
-	color: #b0afac;
+	color: #0099FF;
 	text-decoration: underline;
 	text-underline-position: under
 }
 
 a:hover {
-	color: #0aeecc;
+	color: #007fd4;
 	text-decoration: underline!important;
 	text-underline-position: under
 }
@@ -192,14 +224,14 @@ a:hover {
 	align-items: center;
 	justify-content: center;
 	padding: 10px;
-	background-color: #35363a
+	background-color: black
 }
 
 .divider {
 	width: 100%;
 	height: 2px;
 	margin-top: 20px;
-	background-color: #35363a
+	background-color: lightgray
 }
 
 .logoProject {
@@ -208,20 +240,13 @@ a:hover {
 	justify-content: center;
 	margin-right: 10px;
 	margin-left: 10px;
-	background-color: #35363a;
 	height: 100px;
 	width: 100px;
 	border-radius: 50px;
 	border-style: solid;
 	border-width: 2px;
-	border-color: #35363a;
+	border-color: #f5f5f5;
 	transition: all .3s cubic-bezier(.25, .8, .25, 1)
-}
-
-.screenshotContainer {
-	border-style: solid;
-	border-color: #202124;
-	border-radius: 4px
 }
 
 .projectImageSmall {
@@ -235,28 +260,6 @@ a:hover {
 	flex-direction: row;
 	align-items: center;
 	flex-wrap: wrap
-}
-
-.stanfordWhite {
-	color: #b0afac;
-	text-decoration: none;
-}
-
-.stanfordWhite:hover {
-	text-decoration: none!important
-}
-
-.stanfordColor {
-	color: #9d2235;
-	text-decoration: none;
-	filter: brightness(.9)
-}
-
-.stanfordColor:hover {
-	color: #9d2235;
-	text-decoration: underline!important;
-	text-underline-position: under;
-	text-decoration: none!important
 }
 
 .projectImageSmallReducedPadding {
@@ -280,16 +283,6 @@ a:hover {
 	height: 250px;
 	width: 250px;
 	transition: all .3s cubic-bezier(.25, .8, .25, 1)
-}
-
-.profileImage {
-	height: 230px;
-	width: 230px;
-	border-radius: 150px;
-	border-style: solid;
-	border-width: 10px;
-	border-color: #35363a;
-	filter: brightness(.7)
 }
 
 .carousel-inner-container {
@@ -317,20 +310,20 @@ a:hover {
 .footer {
 	padding-top: 20px;
 	width: 100%;
-	background-color: #202124;
+	background-color: #fff;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border-top: 2px solid #35363a
+	border-top: 2px solid black
 }
 
 .footerText {
-	color: #979693;
+	color: black;
 	font-size: 18px;
 	padding: 20px;
 	margin-bottom: 15px;
 	text-align: center;
-	font-family: AvenirRegular
+	font-family: gtRegular
 }
 
 .alignCenter {
@@ -370,14 +363,14 @@ a:hover {
 		transition: all .3s cubic-bezier(.25, .8, .25, 1)
 	}
 	.content {
-		background-color: #202124;
+		background-color: #fff;
 		font-family: 'Open Sans', sans-serif;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		padding-left: 2em;
 		padding-right: 2em;
-		color: #979693
+		color: black
 	}
 	.toolbarContainer {
 		position: fixed;
@@ -394,12 +387,12 @@ a:hover {
 		height: 100px
 	}
 	.footerText {
-		color: #979693;
+		color: black;
 		font-size: 18px;
 		padding: 20px;
 		margin-bottom: 20px;
 		text-align: center;
-		font-family: AvenirRegular
+		font-family: gtRegular
 	}
 }
 
